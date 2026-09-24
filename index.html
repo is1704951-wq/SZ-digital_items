@@ -41,27 +41,28 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+            cursor: pointer;
         }
 
-        /* Three-Dot Menu Container */
+        /* Professional Hamburger Menu Button */
         .menu-container {
             position: relative;
         }
-        .three-dots-btn {
+        .hamburger-btn {
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.15);
             color: #f8fafc;
-            font-size: 1.3rem;
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
+            font-size: 1.2rem;
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
             cursor: pointer;
             display: flex;
             justify-content: center;
             align-items: center;
             transition: all 0.3s ease;
         }
-        .three-dots-btn:hover {
+        .hamburger-btn:hover {
             background: rgba(56, 189, 248, 0.2);
             border-color: #38bdf8;
             color: #38bdf8;
@@ -73,11 +74,11 @@
             display: none;
             position: absolute;
             right: 0;
-            top: 50px;
+            top: 55px;
             background: #131927;
             border: 1px solid rgba(255, 255, 255, 0.12);
             border-radius: 14px;
-            width: 200px;
+            width: 210px;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
             overflow: hidden;
             z-index: 200;
@@ -96,13 +97,14 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            padding: 12px 18px;
+            padding: 14px 18px;
             color: #cbd5e1;
             text-decoration: none;
             font-size: 0.95rem;
             font-weight: 600;
             transition: all 0.2s ease;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            cursor: pointer;
         }
         .dropdown-menu a:last-child {
             border-bottom: none;
@@ -111,6 +113,11 @@
             background: rgba(56, 189, 248, 0.15);
             color: #38bdf8;
             padding-left: 22px;
+        }
+
+        /* Main Page Content Wrapper */
+        #mainContent {
+            display: block;
         }
 
         /* Hero Section */
@@ -223,6 +230,51 @@
             font-size: 0.98rem;
         }
 
+        /* Separate Clean Coming Soon Page View */
+        #comingSoonPage {
+            display: none;
+            min-height: 70vh;
+            text-align: center;
+            padding: 100px 20px;
+            background: radial-gradient(circle at 50% 40%, rgba(168, 85, 247, 0.15), #0b0f19 80%);
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        #comingSoonPage h2 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #38bdf8, #a855f7, #f43f5e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        #comingSoonPage p {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            margin-bottom: 30px;
+            max-width: 500px;
+        }
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 28px;
+            background: linear-gradient(135deg, #38bdf8, #a855f7);
+            color: #ffffff;
+            font-weight: 700;
+            border-radius: 30px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+        }
+        .back-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 30px rgba(168, 85, 247, 0.5);
+        }
+
         /* Compact Professional Footer Section */
         footer {
             background: #060911;
@@ -310,6 +362,9 @@
             .hero p {
                 font-size: 1.05rem;
             }
+            #comingSoonPage h2 {
+                font-size: 2.2rem;
+            }
             .footer-container {
                 flex-direction: column;
                 text-align: center;
@@ -324,50 +379,61 @@
 
     <!-- Header / Navbar -->
     <nav>
-        <div class="logo">SZ DIGITAL</div>
+        <div class="logo" onclick="showHomePage()">SZ DIGITAL</div>
         
-        <!-- Three Dot Menu Icon -->
+        <!-- Professional Hamburger Menu Icon (3 Lines) -->
         <div class="menu-container">
-            <button class="three-dots-btn" id="menuToggle" aria-label="Menu">
-                <i class="fa-solid fa-ellipsis-vertical"></i>
+            <button class="hamburger-btn" id="menuToggle" aria-label="Menu">
+                <i class="fa-solid fa-bars" id="menuIcon"></i>
             </button>
             
             <!-- Dropdown Options -->
             <div class="dropdown-menu" id="dropdownMenu">
-                <a href="#canva"><i class="fa-solid fa-palette" style="color: #00c4cc;"></i> Canva Templates</a>
-                <a href="#capcut"><i class="fa-solid fa-video" style="color: #f43f5e;"></i> CapCut Templates</a>
-                <a href="#ebooks"><i class="fa-solid fa-book-open" style="color: #fbbf24;"></i> Ebooks</a>
+                <a onclick="openComingSoon('Canva Templates')"><i class="fa-solid fa-palette" style="color: #00c4cc;"></i> Canva Templates</a>
+                <a onclick="openComingSoon('CapCut Templates')"><i class="fa-solid fa-video" style="color: #f43f5e;"></i> CapCut Templates</a>
+                <a onclick="openComingSoon('Ebooks')"><i class="fa-solid fa-book-open" style="color: #fbbf24;"></i> Ebooks</a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Banner -->
-    <section class="hero">
-        <div class="badge">🚀 Coming Soon - Premium Store</div>
-        <h1>Elevate Your Digital Experience</h1>
-        <p>Welcome to <b>SZ Digital Items</b>. We offer high-quality digital assets, templates, and creative tools to boost your productivity and online presence.</p>
-    </section>
+    <!-- Main Home Page Content -->
+    <div id="mainContent">
+        <!-- Hero Banner -->
+        <section class="hero">
+            <div class="badge">🚀 Coming Soon - Premium Store</div>
+            <h1>Elevate Your Digital Experience</h1>
+            <p>Welcome to <b>SZ Digital Items</b>. We offer high-quality digital assets, templates, and creative tools to boost your productivity and online presence.</p>
+        </section>
 
-    <!-- Features Section -->
-    <div class="container">
-        <h2 class="section-title">Why Choose SZ Digital Items?</h2>
-        
-        <div class="features-grid">
-            <div class="feature-card">
-                <h3>⚡ Instant Access</h3>
-                <p>Get immediate access to all your digital files and templates right after your purchase.</p>
-            </div>
+        <!-- Features Section -->
+        <div class="container">
+            <h2 class="section-title">Why Choose SZ Digital Items?</h2>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>⚡ Instant Access</h3>
+                    <p>Get immediate access to all your digital files and templates right after your purchase.</p>
+                </div>
 
-            <div class="feature-card">
-                <h3>✨ Premium Quality</h3>
-                <p>Handcrafted and professionally designed digital products to meet all your creative needs.</p>
-            </div>
+                <div class="feature-card">
+                    <h3>✨ Premium Quality</h3>
+                    <p>Handcrafted and professionally designed digital products to meet all your creative needs.</p>
+                </div>
 
-            <div class="feature-card">
-                <h3>🔒 100% Secure</h3>
-                <p>Safe and trusted digital downloads for content creators, designers, and entrepreneurs.</p>
+                <div class="feature-card">
+                    <h3>🔒 100% Secure</h3>
+                    <p>Safe and trusted digital downloads for content creators, designers, and entrepreneurs.</p>
+                </div>
             </div>
         </div>
+    </div>
+
+    <!-- Separate Clean Coming Soon Page -->
+    <div id="comingSoonPage">
+        <div class="badge" id="categoryBadge">Premium Asset</div>
+        <h2 id="categoryTitle">Canva Templates</h2>
+        <p>🚀 We are working hard to prepare top-quality resources for this category. Stay tuned, coming very soon!</p>
+        <button class="back-btn" onclick="showHomePage()"><i class="fa-solid fa-arrow-left"></i> Back to Home</button>
     </div>
 
     <!-- Compact Professional Footer with Icons -->
@@ -397,23 +463,57 @@
         </div>
     </footer>
 
-    <!-- JavaScript for Three Dot Toggle -->
+    <!-- JavaScript for Navigation & Menu Toggle -->
     <script>
         const menuToggle = document.getElementById('menuToggle');
+        const menuIcon = document.getElementById('menuIcon');
         const dropdownMenu = document.getElementById('dropdownMenu');
+        const mainContent = document.getElementById('mainContent');
+        const comingSoonPage = document.getElementById('comingSoonPage');
+        const categoryTitle = document.getElementById('categoryTitle');
 
-        // Toggle Menu on Click
+        // Toggle Menu Icon & Dropdown View
         menuToggle.addEventListener('click', (e) => {
             e.stopPropagation();
             dropdownMenu.classList.toggle('show');
+            
+            // Toggle Icon between Bars and Cross (X)
+            if (dropdownMenu.classList.contains('show')) {
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-xmark');
+            } else {
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+            }
         });
 
         // Close Menu when clicking outside
         document.addEventListener('click', (e) => {
             if (!dropdownMenu.contains(e.target) && !menuToggle.contains(e.target)) {
                 dropdownMenu.classList.remove('show');
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
             }
         });
+
+        // Function to open Coming Soon page for selected category
+        function openComingSoon(categoryName) {
+            dropdownMenu.classList.remove('show');
+            menuIcon.classList.remove('fa-xmark');
+            menuIcon.classList.add('fa-bars');
+            
+            mainContent.style.display = 'none';
+            comingSoonPage.style.display = 'flex';
+            categoryTitle.innerText = categoryName + ' - Coming Soon';
+            window.scrollTo(0, 0);
+        }
+
+        // Function to return to main Home Page
+        function showHomePage() {
+            comingSoonPage.style.display = 'none';
+            mainContent.style.display = 'block';
+            window.scrollTo(0, 0);
+        }
     </script>
 
 </body>
