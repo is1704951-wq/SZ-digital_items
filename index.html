@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SZ Digital Items - Premium Digital Assets & Resources</title>
+    <!-- FontAwesome for Professional Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             box-sizing: border-box;
@@ -90,7 +92,7 @@
             margin: 0 auto 35px;
         }
 
-        /* Features & Contact Section */
+        /* Features Section */
         .container {
             max-width: 1100px;
             margin: 0 auto;
@@ -105,13 +107,13 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        .features-grid, .contact-grid {
+        .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 25px;
             margin-bottom: 50px;
         }
-        .feature-card, .contact-card {
+        .feature-card {
             background: rgba(30, 41, 59, 0.6);
             padding: 35px 25px;
             border-radius: 20px;
@@ -120,10 +122,8 @@
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
-            text-decoration: none;
-            display: block;
         }
-        .feature-card::before, .contact-card::before {
+        .feature-card::before {
             content: '';
             position: absolute;
             top: 0;
@@ -134,49 +134,118 @@
             opacity: 0;
             transition: opacity 0.3s ease;
         }
-        .feature-card:hover, .contact-card:hover {
+        .feature-card:hover {
             transform: translateY(-8px);
             border-color: rgba(168, 85, 247, 0.4);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(168, 85, 247, 0.15);
         }
-        .feature-card:hover::before, .contact-card:hover::before {
+        .feature-card:hover::before {
             opacity: 1;
         }
-        .feature-card h3, .contact-card h3 {
+        .feature-card h3 {
             color: #38bdf8;
             font-size: 1.35rem;
             margin-bottom: 12px;
             font-weight: 700;
         }
-        .feature-card p, .contact-card p {
+        .feature-card p {
             color: #94a3b8;
             font-size: 0.98rem;
         }
-        .contact-card h3 {
-            color: #f43f5e;
-        }
-        .contact-card p {
-            color: #f8fafc;
-            font-weight: 600;
-            word-break: break-all;
-        }
 
-        /* Footer */
+        /* Compact Professional Footer Section */
         footer {
-            text-align: center;
-            padding: 35px;
             background: #060911;
+            padding: 40px 8% 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .footer-brand h2 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #38bdf8, #f43f5e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .footer-brand p {
             color: #64748b;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.85rem;
+            margin-top: 4px;
         }
 
-        /* Mobile Responsive adjustment */
+        /* Colorful Compact Social/Contact Links */
+        .footer-contacts {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .contact-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #ffffff;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        /* Individual Colorful Hover Effects */
+        .contact-btn.whatsapp:hover {
+            background: #25D366;
+            border-color: #25D366;
+            box-shadow: 0 0 15px rgba(37, 211, 102, 0.4);
+        }
+        .contact-btn.instagram:hover {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            border-color: #dc2743;
+            box-shadow: 0 0 15px rgba(220, 39, 67, 0.4);
+        }
+        .contact-btn.gmail:hover {
+            background: #EA4335;
+            border-color: #EA4335;
+            box-shadow: 0 0 15px rgba(234, 67, 53, 0.4);
+        }
+        .contact-btn i {
+            font-size: 1.1rem;
+        }
+
+        .copyright {
+            text-align: center;
+            color: #475569;
+            font-size: 0.8rem;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+            padding-top: 20px;
+        }
+
+        /* Mobile Responsive */
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2.3rem;
             }
             .hero p {
                 font-size: 1.05rem;
+            }
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .footer-contacts {
+                justify-content: center;
             }
         }
     </style>
@@ -195,7 +264,7 @@
         <p>Welcome to <b>SZ Digital Items</b>. We offer high-quality digital assets, templates, and creative tools to boost your productivity and online presence.</p>
     </section>
 
-    <!-- Features / About Section -->
+    <!-- Features Section -->
     <div class="container">
         <h2 class="section-title">Why Choose SZ Digital Items?</h2>
         
@@ -215,33 +284,33 @@
                 <p>Safe and trusted digital downloads for content creators, designers, and entrepreneurs.</p>
             </div>
         </div>
-
-        <!-- Contact Section -->
-        <h2 class="section-title">Connect With Us</h2>
-        <div class="contact-grid">
-            <!-- WhatsApp -->
-            <a href="https://wa.me/94757663533" target="_blank" class="contact-card">
-                <h3>💬 WhatsApp</h3>
-                <p>+94757663533</p>
-            </a>
-
-            <!-- Gmail -->
-            <a href="mailto:mhmsakeeb0@gmail.com" class="contact-card">
-                <h3>📧 Email Us</h3>
-                <p>mhmsakeeb0@gmail.com</p>
-            </a>
-
-            <!-- Instagram -->
-            <a href="https://www.instagram.com/sz_digital_items?stkn=OHh6amdoejV4MG1n" target="_blank" class="contact-card">
-                <h3>📸 Instagram</h3>
-                <p>@sz_digital_items</p>
-            </a>
-        </div>
     </div>
 
-    <!-- Footer -->
+    <!-- Compact Professional Footer with Icons -->
     <footer>
-        <p>&copy; 2026 SZ Digital Items. All rights reserved.</p>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h2>SZ DIGITAL ITEMS</h2>
+                <p>Your Trustworthy Digital Resource Partner</p>
+            </div>
+
+            <!-- Colorful Professional Badges -->
+            <div class="footer-contacts">
+                <a href="https://wa.me/94757663533" target="_blank" class="contact-btn whatsapp">
+                    <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                </a>
+                <a href="https://www.instagram.com/sz_digital_items?stkn=OHh6amdoejV4MG1n" target="_blank" class="contact-btn instagram">
+                    <i class="fa-brands fa-instagram"></i> Instagram
+                </a>
+                <a href="mailto:mhmsakeeb0@gmail.com" class="contact-btn gmail">
+                    <i class="fa-solid fa-envelope"></i> Gmail
+                </a>
+            </div>
+        </div>
+
+        <div class="copyright">
+            &copy; 2026 SZ Digital Items. All rights reserved.
+        </div>
     </footer>
 
 </body>
