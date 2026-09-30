@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SZ Digital Items - Premium Digital Assets & Resources</title>
+    <title>SZ Digital Items - Premium Assets & Arcade</title>
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -190,6 +190,7 @@
             text-decoration: none;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            cursor: pointer;
         }
         .btn-primary:hover {
             background: #0f172a;
@@ -204,13 +205,14 @@
             font-weight: 700;
             text-decoration: none;
             transition: all 0.3s ease;
+            cursor: pointer;
         }
         .btn-secondary:hover {
             background: rgba(255, 255, 255, 0.15);
             transform: translateY(-2px);
         }
 
-        /* Category Banners Section (Middle Image Grid Style) */
+        /* Category Banners Section */
         .category-section {
             max-width: 1200px;
             margin: -50px auto 60px;
@@ -273,7 +275,7 @@
             text-transform: uppercase;
         }
 
-        /* Featured Products Section */
+        /* Features Section */
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -323,16 +325,6 @@
             font-size: 1.6rem;
             margin: 0 auto 20px;
         }
-        .feature-card h3 {
-            color: #0f172a;
-            font-size: 1.3rem;
-            margin-bottom: 12px;
-            font-weight: 700;
-        }
-        .feature-card p {
-            color: #64748b;
-            font-size: 0.95rem;
-        }
 
         /* Coming Soon Page View */
         #comingSoonPage {
@@ -366,13 +358,66 @@
             color: #ffffff;
             font-weight: 700;
             border-radius: 6px;
-            text-decoration: none;
             border: none;
             cursor: pointer;
             transition: all 0.3s ease;
         }
         .back-btn:hover {
             background: #0f172a;
+        }
+
+        /* SUPER MARIO GAME SECTION STYLES */
+        #gamePage {
+            display: none;
+            padding: 40px 20px;
+            background: #0f172a;
+            color: #ffffff;
+            text-align: center;
+            min-height: 80vh;
+        }
+        .game-header {
+            margin-bottom: 20px;
+        }
+        .game-header h2 {
+            font-size: 2.2rem;
+            color: #38bdf8;
+            font-weight: 900;
+        }
+        .score-board {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin: 15px 0;
+            color: #facc15;
+        }
+        #gameCanvas {
+            background: #70c5ce; /* Mario Sky Color */
+            border: 4px solid #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            max-width: 100%;
+        }
+        .mobile-controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .ctrl-btn {
+            background: #1e293b;
+            color: #ffffff;
+            border: 2px solid #38bdf8;
+            padding: 15px 25px;
+            font-size: 1.2rem;
+            border-radius: 10px;
+            cursor: pointer;
+            user-select: none;
+            touch-action: manipulation;
+        }
+        .ctrl-btn:active {
+            background: #38bdf8;
         }
 
         /* Footer Section */
@@ -422,18 +467,9 @@
             background: #1e293b;
             border: 1px solid #334155;
         }
-        .contact-btn.whatsapp:hover {
-            background: #25D366;
-            border-color: #25D366;
-        }
-        .contact-btn.instagram:hover {
-            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
-            border-color: #dc2743;
-        }
-        .contact-btn.gmail:hover {
-            background: #EA4335;
-            border-color: #EA4335;
-        }
+        .contact-btn.whatsapp:hover { background: #25D366; border-color: #25D366; }
+        .contact-btn.instagram:hover { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); border-color: #dc2743; }
+        .contact-btn.gmail:hover { background: #EA4335; border-color: #EA4335; }
 
         .copyright {
             text-align: center;
@@ -444,24 +480,12 @@
             padding-top: 20px;
         }
 
-        /* Mobile Responsive */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.3rem;
-            }
-            .hero {
-                padding: 50px 20px;
-            }
-            .category-section {
-                margin-top: 30px;
-            }
-            .footer-container {
-                flex-direction: column;
-                text-align: center;
-            }
-            .footer-contacts {
-                justify-content: center;
-            }
+            .hero h1 { font-size: 2.3rem; }
+            .hero { padding: 50px 20px; }
+            .category-section { margin-top: 30px; }
+            .footer-container { flex-direction: column; text-align: center; }
+            .footer-contacts { justify-content: center; }
         }
     </style>
 </head>
@@ -478,23 +502,25 @@
             <i class="fa-solid fa-layer-group"></i> SZ <span>DIGITAL</span>
         </div>
         
-        <!-- Professional Hamburger Menu -->
+        <!-- Hamburger Menu -->
         <div class="menu-container">
             <button class="hamburger-btn" id="menuToggle" aria-label="Menu">
                 <i class="fa-solid fa-bars" id="menuIcon"></i>
             </button>
             
+            <!-- Dropdown Menu with 4th Game Option -->
             <div class="dropdown-menu" id="dropdownMenu">
                 <a onclick="openComingSoon('Canva Templates')"><i class="fa-solid fa-palette" style="color: #00c4cc;"></i> Canva Templates</a>
                 <a onclick="openComingSoon('CapCut Templates')"><i class="fa-solid fa-video" style="color: #f43f5e;"></i> CapCut Templates</a>
                 <a onclick="openComingSoon('Ebooks')"><i class="fa-solid fa-book-open" style="color: #fbbf24;"></i> Ebooks</a>
+                <a onclick="openGamePage()"><i class="fa-solid fa-gamepad" style="color: #10b981;"></i> Play Game 🎮</a>
             </div>
         </div>
     </nav>
 
     <!-- Main Home Page Content -->
     <div id="mainContent">
-        <!-- DNK Styled Blue Hero Banner -->
+        <!-- Blue Hero Banner -->
         <section class="hero">
             <div class="hero-content">
                 <div class="badge">SZ Premium Digital Store</div>
@@ -502,12 +528,12 @@
                 <p>High-quality digital assets, templates, and creative tools tailored for content creators and modern entrepreneurs.</p>
                 <div class="hero-btns">
                     <a href="#categories" class="btn-primary">EXPLORE NOW</a>
-                    <a onclick="openComingSoon('Digital Store')" class="btn-secondary">LEARN MORE</a>
+                    <a onclick="openGamePage()" class="btn-secondary">PLAY MARIO 🎮</a>
                 </div>
             </div>
         </section>
 
-        <!-- Image Banner Grid (DNK Layout) -->
+        <!-- Image Banner Grid -->
         <section class="category-section" id="categories">
             <div class="category-grid">
                 <div class="category-card bg-canva" onclick="openComingSoon('Canva Templates')">
@@ -536,7 +562,7 @@
             </div>
         </section>
 
-        <!-- Features / Why Choose Us Section -->
+        <!-- Features Section -->
         <div class="container">
             <h2 class="section-title">Why Choose SZ Digital Items?</h2>
             <p class="section-subtitle">We deliver premium resources designed to boost your efficiency</p>
@@ -563,10 +589,34 @@
         </div>
     </div>
 
-    <!-- Separate Coming Soon Page -->
+    <!-- Coming Soon Page -->
     <div id="comingSoonPage">
         <h2 id="categoryTitle">Canva Templates</h2>
         <p>🚀 We are working hard to prepare top-quality resources for this category. Stay tuned, coming very soon!</p>
+        <button class="back-btn" onclick="showHomePage()"><i class="fa-solid fa-arrow-left"></i> Back to Home</button>
+    </div>
+
+    <!-- SUPER MARIO ARCADE GAME PAGE -->
+    <div id="gamePage">
+        <div class="game-header">
+            <h2>🍄 Super SZ Mario Runner 🎮</h2>
+            <p>Collect Coins, Jump over Pipes & Obstacles!</p>
+            <div class="score-board">
+                <span>🪙 Coins: <span id="scoreVal">0</span></span>
+                <span>🏆 High Score: <span id="highScoreVal">0</span></span>
+            </div>
+        </div>
+
+        <canvas id="gameCanvas" width="800" height="400"></canvas>
+
+        <!-- Mobile Touch Controls -->
+        <div class="mobile-controls">
+            <button class="ctrl-btn" id="leftBtn"><i class="fa-solid fa-arrow-left"></i></button>
+            <button class="ctrl-btn" id="jumpBtn"><i class="fa-solid fa-arrow-up"></i> JUMP</button>
+            <button class="ctrl-btn" id="rightBtn"><i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+
+        <br><br>
         <button class="back-btn" onclick="showHomePage()"><i class="fa-solid fa-arrow-left"></i> Back to Home</button>
     </div>
 
@@ -596,19 +646,20 @@
         </div>
     </footer>
 
-    <!-- JavaScript -->
+    <!-- JavaScript Engine & Game Logic -->
     <script>
         const menuToggle = document.getElementById('menuToggle');
         const menuIcon = document.getElementById('menuIcon');
         const dropdownMenu = document.getElementById('dropdownMenu');
         const mainContent = document.getElementById('mainContent');
         const comingSoonPage = document.getElementById('comingSoonPage');
+        const gamePage = document.getElementById('gamePage');
         const categoryTitle = document.getElementById('categoryTitle');
 
+        // Navigation Toggle
         menuToggle.addEventListener('click', (e) => {
             e.stopPropagation();
             dropdownMenu.classList.toggle('show');
-            
             if (dropdownMenu.classList.contains('show')) {
                 menuIcon.classList.remove('fa-bars');
                 menuIcon.classList.add('fa-xmark');
@@ -627,20 +678,208 @@
         });
 
         function openComingSoon(categoryName) {
-            dropdownMenu.classList.remove('show');
-            menuIcon.classList.remove('fa-xmark');
-            menuIcon.classList.add('fa-bars');
-            
-            mainContent.style.display = 'none';
+            hideAll();
             comingSoonPage.style.display = 'flex';
             categoryTitle.innerText = categoryName + ' - Coming Soon';
             window.scrollTo(0, 0);
         }
 
+        function openGamePage() {
+            hideAll();
+            gamePage.style.display = 'block';
+            window.scrollTo(0, 0);
+            initGame();
+        }
+
         function showHomePage() {
-            comingSoonPage.style.display = 'none';
+            hideAll();
             mainContent.style.display = 'block';
             window.scrollTo(0, 0);
+        }
+
+        function hideAll() {
+            dropdownMenu.classList.remove('show');
+            menuIcon.classList.remove('fa-xmark');
+            menuIcon.classList.add('fa-bars');
+            mainContent.style.display = 'none';
+            comingSoonPage.style.display = 'none';
+            gamePage.style.display = 'none';
+        }
+
+        /* SUPER MARIO CANVAS GAME LOGIC */
+        let canvas, ctx;
+        let player, gravity, keys, obstacles, coins, score, highScore, gameAnimation;
+
+        function initGame() {
+            canvas = document.getElementById('gameCanvas');
+            ctx = canvas.getContext('2d');
+
+            score = 0;
+            highScore = localStorage.getItem('sz_mario_high') || 0;
+            document.getElementById('scoreVal').innerText = score;
+            document.getElementById('highScoreVal').innerText = highScore;
+
+            gravity = 0.6;
+            player = {
+                x: 80,
+                y: 280,
+                width: 32,
+                height: 40,
+                dx: 0,
+                dy: 0,
+                speed: 5,
+                jumpForce: -13,
+                grounded: false
+            };
+
+            keys = { left: false, right: false, up: false };
+            obstacles = [
+                { x: 400, y: 320, w: 40, h: 50 }, /* Green Pipe */
+                { x: 700, y: 320, w: 40, h: 50 }
+            ];
+            coins = [
+                { x: 300, y: 240, collected: false },
+                { x: 420, y: 220, collected: false },
+                { x: 550, y: 200, collected: false },
+                { x: 720, y: 220, collected: false }
+            ];
+
+            // Setup Mobile Buttons
+            bindMobileCtrl('leftBtn', 'left');
+            bindMobileCtrl('rightBtn', 'right');
+            bindMobileJump('jumpBtn');
+
+            if (gameAnimation) cancelAnimationFrame(gameAnimation);
+            updateGame();
+        }
+
+        function bindMobileCtrl(btnId, dir) {
+            const btn = document.getElementById(btnId);
+            btn.ontouchstart = (e) => { e.preventDefault(); keys[dir] = true; };
+            btn.ontouchend = (e) => { e.preventDefault(); keys[dir] = false; };
+            btn.onmousedown = () => keys[dir] = true;
+            btn.onmouseup = () => keys[dir] = false;
+        }
+
+        function bindMobileJump(btnId) {
+            const btn = document.getElementById(btnId);
+            const triggerJump = (e) => {
+                if (e) e.preventDefault();
+                if (player.grounded) {
+                    player.dy = player.jumpForce;
+                    player.grounded = false;
+                }
+            };
+            btn.ontouchstart = triggerJump;
+            btn.onmousedown = triggerJump;
+        }
+
+        // Keyboard Controls
+        window.onkeydown = (e) => {
+            if (e.key === 'ArrowLeft') keys.left = true;
+            if (e.key === 'ArrowRight') keys.right = true;
+            if (e.key === 'ArrowUp' || e.key === ' ') {
+                if (player.grounded) {
+                    player.dy = player.jumpForce;
+                    player.grounded = false;
+                }
+            }
+        };
+
+        window.onkeyup = (e) => {
+            if (e.key === 'ArrowLeft') keys.left = false;
+            if (e.key === 'ArrowRight') keys.right = false;
+        };
+
+        function updateGame() {
+            // Movement Logic
+            if (keys.left && player.x > 0) player.x -= player.speed;
+            if (keys.right && player.x < canvas.width - player.width) player.x += player.speed;
+
+            // Apply Gravity
+            player.dy += gravity;
+            player.y += player.dy;
+
+            // Ground Collision
+            const groundY = 370;
+            if (player.y + player.height >= groundY) {
+                player.y = groundY - player.height;
+                player.dy = 0;
+                player.grounded = true;
+            }
+
+            // Pipe Obstacles Collision
+            obstacles.forEach(pipe => {
+                if (player.x < pipe.x + pipe.w &&
+                    player.x + player.width > pipe.x &&
+                    player.y + player.height > pipe.y) {
+                    
+                    // Simple Obstacle Collision Bounce
+                    if (player.x + player.width - player.speed <= pipe.x) player.x = pipe.x - player.width;
+                    if (player.x >= pipe.x + pipe.w - player.speed) player.x = pipe.x + pipe.w;
+                }
+            });
+
+            // Coins Collection
+            coins.forEach(c => {
+                if (!c.collected &&
+                    player.x < c.x + 20 &&
+                    player.x + player.width > c.x &&
+                    player.y < c.y + 20 &&
+                    player.y + player.height > c.y) {
+                    
+                    c.collected = true;
+                    score += 10;
+                    document.getElementById('scoreVal').innerText = score;
+                    if (score > highScore) {
+                        highScore = score;
+                        localStorage.setItem('sz_mario_high', highScore);
+                        document.getElementById('highScoreVal').innerText = highScore;
+                    }
+                }
+            });
+
+            // Render World
+            renderGame();
+            gameAnimation = requestAnimationFrame(updateGame);
+        }
+
+        function renderGame() {
+            // Clear Sky
+            ctx.fillStyle = '#70c5ce';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Ground / Grass
+            ctx.fillStyle = '#22c55e';
+            ctx.fillRect(0, 370, canvas.width, 30);
+            ctx.fillStyle = '#854d0e';
+            ctx.fillRect(0, 385, canvas.width, 15);
+
+            // Draw Pipes (Obstacles)
+            obstacles.forEach(p => {
+                ctx.fillStyle = '#16a34a';
+                ctx.fillRect(p.x, p.y, p.w, p.h);
+                ctx.fillStyle = '#22c55e';
+                ctx.fillRect(p.x - 3, p.y, p.w + 6, 12);
+            });
+
+            // Draw Coins
+            coins.forEach(c => {
+                if (!c.collected) {
+                    ctx.fillStyle = '#facc15';
+                    ctx.beginPath();
+                    ctx.arc(c.x + 10, c.y + 10, 10, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.strokeStyle = '#ca8a04';
+                    ctx.stroke();
+                }
+            });
+
+            // Draw Mario Character
+            ctx.fillStyle = '#ef4444'; // Red Cap/Shirt
+            ctx.fillRect(player.x, player.y, player.width, 20);
+            ctx.fillStyle = '#1d4ed8'; // Blue Overalls
+            ctx.fillRect(player.x, player.y + 20, player.width, 20);
         }
     </script>
 
