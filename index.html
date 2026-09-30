@@ -96,7 +96,7 @@
             background: #ffffff;
             border: 1px solid #e2e8f0;
             border-radius: 14px;
-            width: 260px;
+            width: 280px;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
             overflow: hidden;
             z-index: 200;
@@ -141,7 +141,7 @@
             gap: 12px;
         }
 
-        /* Submenu Style */
+        /* Submenu Style Level 1 */
         .submenu {
             display: none;
             background-color: #f8fafc;
@@ -150,27 +150,64 @@
         .submenu.show {
             display: block;
         }
-        .submenu a {
-            padding: 10px 18px 10px 45px;
+        .submenu .sub-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 18px 10px 35px;
             font-size: 0.88rem;
             color: #475569;
             font-weight: 500;
             border-bottom: 1px solid #e2e8f0;
         }
-        .submenu a:last-child {
-            border-bottom: none;
-        }
-        .submenu a:hover {
+        .submenu .sub-item:hover {
             color: #0284c7;
             background: #e0f2fe;
-            padding-left: 48px;
+        }
+
+        /* Submenu Style Level 2 (Years List) */
+        .years-list {
+            display: none;
+            background-color: #f1f5f9;
+            max-height: 250px;
+            overflow-y: auto;
+            border-bottom: 1px solid #cbd5e1;
+        }
+        .years-list.show {
+            display: block;
+        }
+        .year-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 18px 8px 50px;
+            font-size: 0.85rem;
+            border-bottom: 1px solid #e2e8f0;
+            color: #334155;
+        }
+        .year-row:hover {
+            background: #e2e8f0;
+        }
+        .click-here-btn {
+            background: #0284c7;
+            color: #ffffff;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+        .click-here-btn:hover {
+            background: #0f172a;
         }
 
         .arrow-icon {
             font-size: 0.75rem;
             transition: transform 0.3s ease;
         }
-        .dropdown-btn.active .arrow-icon {
+        .dropdown-btn.active .arrow-icon, .sub-item.active .arrow-icon {
             transform: rotate(180deg);
         }
 
@@ -547,9 +584,15 @@
                     <i class="fa-solid fa-chevron-down arrow-icon"></i>
                 </button>
                 <div class="submenu" id="olSubmenu">
-                    <a onclick="openComingSoon('O/L Past Papers')"><i class="fa-solid fa-file-pdf"></i> Past Papers</a>
-                    <a onclick="openComingSoon('O/L Model Papers')"><i class="fa-solid fa-file-lines"></i> Model Papers</a>
-                    <a onclick="openComingSoon('O/L Term Papers')"><i class="fa-solid fa-copy"></i> Term Papers</a>
+                    <!-- O/L Past Papers Click to show 2000-2026 -->
+                    <div class="sub-item" onclick="toggleYears('olPastPaperYears', this)">
+                        <span><i class="fa-solid fa-file-pdf"></i> Past Papers</span>
+                        <i class="fa-solid fa-chevron-down arrow-icon"></i>
+                    </div>
+                    <div class="years-list" id="olPastPaperYears"></div>
+
+                    <a class="sub-item" onclick="openComingSoon('O/L Model Papers')"><span><i class="fa-solid fa-file-lines"></i> Model Papers</span></a>
+                    <a class="sub-item" onclick="openComingSoon('O/L Term Papers')"><span><i class="fa-solid fa-copy"></i> Term Papers</span></a>
                 </div>
 
                 <!-- 5th Item: A/L Education Resources -->
@@ -558,10 +601,16 @@
                     <i class="fa-solid fa-chevron-down arrow-icon"></i>
                 </button>
                 <div class="submenu" id="alSubmenu">
-                    <a onclick="openComingSoon('A/L Past Papers')"><i class="fa-solid fa-file-pdf"></i> Past Papers</a>
-                    <a onclick="openComingSoon('A/L Model Papers')"><i class="fa-solid fa-file-lines"></i> Model Papers</a>
-                    <a onclick="openComingSoon('A/L Term Papers')"><i class="fa-solid fa-copy"></i> Term Papers</a>
-                    <a onclick="openComingSoon('A/L FWC Papers')"><i class="fa-solid fa-file-pen"></i> FWC Papers</a>
+                    <!-- A/L Past Papers Click to show 2000-2026 -->
+                    <div class="sub-item" onclick="toggleYears('alPastPaperYears', this)">
+                        <span><i class="fa-solid fa-file-pdf"></i> Past Papers</span>
+                        <i class="fa-solid fa-chevron-down arrow-icon"></i>
+                    </div>
+                    <div class="years-list" id="alPastPaperYears"></div>
+
+                    <a class="sub-item" onclick="openComingSoon('A/L Model Papers')"><span><i class="fa-solid fa-file-lines"></i> Model Papers</span></a>
+                    <a class="sub-item" onclick="openComingSoon('A/L Term Papers')"><span><i class="fa-solid fa-copy"></i> Term Papers</span></a>
+                    <a class="sub-item" onclick="openComingSoon('A/L FWC Papers')"><span><i class="fa-solid fa-file-pen"></i> FWC Papers</span></a>
                 </div>
             </div>
         </div>
@@ -680,6 +729,25 @@
         const comingSoonPage = document.getElementById('comingSoonPage');
         const categoryTitle = document.getElementById('categoryTitle');
 
+        // Generate Years 2000 to 2026 dynamically
+        function generateYearsList(containerId, sectionPrefix) {
+            const container = document.getElementById(containerId);
+            let html = '';
+            for (let year = 2000; year <= 2026; year++) {
+                html += `
+                    <div class="year-row">
+                        <span>${year}</span>
+                        <span class="click-here-btn" onclick="openComingSoon('${sectionPrefix} Past Papers - ${year}')">click here</span>
+                    </div>
+                `;
+            }
+            container.innerHTML = html;
+        }
+
+        // Initialize Year Lists
+        generateYearsList('olPastPaperYears', 'O/L');
+        generateYearsList('alPastPaperYears', 'A/L');
+
         menuToggle.addEventListener('click', (e) => {
             e.stopPropagation();
             dropdownMenu.classList.toggle('show');
@@ -715,9 +783,25 @@
             }
         }
 
+        function toggleYears(yearsId, element) {
+            const yearsContainer = document.getElementById(yearsId);
+            const isOpen = yearsContainer.classList.contains('show');
+            
+            // Close other year lists
+            document.querySelectorAll('.years-list').forEach(list => list.classList.remove('show'));
+            document.querySelectorAll('.sub-item').forEach(item => item.classList.remove('active'));
+
+            if (!isOpen) {
+                yearsContainer.classList.add('show');
+                element.classList.add('active');
+            }
+        }
+
         function closeAllSubmenus() {
             document.querySelectorAll('.submenu').forEach(sub => sub.classList.remove('show'));
+            document.querySelectorAll('.years-list').forEach(list => list.classList.remove('show'));
             document.querySelectorAll('.dropdown-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.sub-item').forEach(item => item.classList.remove('active'));
         }
 
         function openComingSoon(categoryName) {
