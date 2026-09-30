@@ -3,35 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SZ Digital Items - O/L Resources Flow</title>
+    <title>SZ Digital Items - Official Digital & Educational Assets</title>
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
         }
         body {
-            background-color: #f8fafc;
-            color: #1e293b;
+            background-color: #0f172a;
+            color: #f8fafc;
             line-height: 1.6;
             overflow-x: hidden;
         }
 
         /* Top Bar Announcement */
         .top-bar {
-            background: #0f2043;
-            color: #94a3b8;
+            background: linear-gradient(90deg, #0284c7, #3b82f6);
+            color: #ffffff;
             text-align: center;
-            padding: 8px 15px;
+            padding: 9px 15px;
             font-size: 0.85rem;
-            font-weight: 500;
-        }
-        .top-bar span {
-            color: #00b4db;
-            font-weight: 700;
+            font-weight: 600;
+            letter-spacing: 0.5px;
         }
 
         /* Navigation Bar */
@@ -39,27 +38,26 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 18px 8%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid #e2e8f0;
+            padding: 16px 8%;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
         }
         .logo {
-            font-size: 2rem;
-            font-weight: 900;
-            letter-spacing: 1px;
-            color: #007991;
+            font-size: 1.6rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            color: #38bdf8;
             cursor: pointer;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
         }
         .logo span {
-            color: #0f2043;
+            color: #ffffff;
         }
 
         /* Hamburger Menu */
@@ -67,9 +65,9 @@
             position: relative;
         }
         .hamburger-btn {
-            background: #f1f5f9;
-            border: 1px solid #cbd5e1;
-            color: #0f2043;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #ffffff;
             font-size: 1.2rem;
             width: 44px;
             height: 44px;
@@ -81,10 +79,9 @@
             transition: all 0.3s ease;
         }
         .hamburger-btn:hover {
-            background: #007991;
-            border-color: #007991;
-            color: #ffffff;
-            box-shadow: 0 4px 12px rgba(0, 121, 145, 0.3);
+            background: #0284c7;
+            border-color: #0284c7;
+            box-shadow: 0 4px 15px rgba(2, 132, 199, 0.4);
         }
 
         /* Dropdown Menu Box */
@@ -93,14 +90,14 @@
             position: absolute;
             right: 0;
             top: 55px;
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
-            border-radius: 14px;
-            width: 280px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            background: #1e293b;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            width: 290px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
             overflow: hidden;
             z-index: 200;
-            animation: fadeIn 0.2s ease-out;
+            animation: fadeIn 0.25s ease-out;
         }
         .dropdown-menu.show {
             display: block;
@@ -111,26 +108,24 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .dropdown-menu a, .dropdown-btn {
+        .dropdown-menu a {
             display: flex;
             align-items: center;
             justify-content: space-between;
             width: 100%;
-            padding: 14px 18px;
-            color: #334155;
+            padding: 14px 20px;
+            color: #cbd5e1;
             text-decoration: none;
             font-size: 0.95rem;
             font-weight: 600;
             transition: all 0.2s ease;
-            border: none;
-            background: transparent;
-            border-bottom: 1px solid #f1f5f9;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             cursor: pointer;
-            text-align: left;
         }
-        .dropdown-menu a:hover, .dropdown-btn:hover {
-            background: #e0f7fa;
-            color: #007991;
+        .dropdown-menu a:hover {
+            background: rgba(2, 132, 199, 0.15);
+            color: #38bdf8;
+            padding-left: 24px;
         }
 
         .menu-item-title {
@@ -144,104 +139,108 @@
             display: block;
         }
 
-        /* Hero Section with Image Gradient Theme */
+        /* Hero Section */
         .hero {
             position: relative;
-            min-height: 480px;
-            background: linear-gradient(90deg, rgba(15,32,67,0.88) 0%, rgba(0,121,145,0.88) 100%), url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+            padding: 90px 8% 70px;
+            background: radial-gradient(circle at top right, rgba(2, 132, 199, 0.25), transparent 50%),
+                        radial-gradient(circle at bottom left, rgba(59, 130, 246, 0.15), transparent 50%);
             display: flex;
+            flex-direction: column;
             align-items: center;
-            padding: 60px 8%;
-            color: #ffffff;
-        }
-        .hero-content {
-            max-width: 650px;
+            text-align: center;
         }
         .badge {
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(5px);
-            color: #ffffff;
-            padding: 6px 16px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(56, 189, 248, 0.1);
+            color: #38bdf8;
+            padding: 6px 18px;
             border-radius: 30px;
             font-size: 0.85rem;
             font-weight: 700;
             letter-spacing: 1px;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
             text-transform: uppercase;
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(56, 189, 248, 0.2);
         }
         .hero h1 {
-            font-size: 3.2rem;
-            font-weight: 900;
+            font-size: 3.5rem;
+            font-weight: 800;
             line-height: 1.15;
-            margin-bottom: 18px;
+            margin-bottom: 20px;
+            max-width: 850px;
+            background: linear-gradient(135deg, #ffffff 30%, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         .hero p {
-            font-size: 1.1rem;
-            color: #e0f7fa;
-            margin-bottom: 30px;
+            font-size: 1.15rem;
+            color: #94a3b8;
+            margin-bottom: 40px;
+            max-width: 650px;
         }
 
-        /* Official Contact Section Cards */
+        /* Official Contact Grid Section */
         .contact-section {
-            max-width: 1000px;
-            margin: 50px auto;
-            padding: 0 20px;
+            max-width: 1100px;
+            margin: 0 auto 80px;
+            padding: 0 8%;
         }
-        .contact-title {
-            font-size: 1.6rem;
-            font-weight: 800;
-            color: #0f2043;
-            margin-bottom: 20px;
+        .section-title {
             text-align: center;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 35px;
         }
         .contact-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 15px;
+            gap: 20px;
         }
         .contact-card {
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
-            padding: 20px;
-            border-radius: 12px;
+            background: #1e293b;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 25px;
+            border-radius: 18px;
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 18px;
             text-decoration: none;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
             transition: all 0.3s ease;
         }
         .contact-card:hover {
-            transform: translateY(-4px);
-            border-color: #007991;
-            box-shadow: 0 8px 20px rgba(0, 121, 145, 0.15);
+            transform: translateY(-5px);
+            border-color: rgba(56, 189, 248, 0.4);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
         .contact-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 10px;
+            width: 54px;
+            height: 54px;
+            border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             flex-shrink: 0;
         }
-        .icon-wa { background: #e8f5e9; color: #25d366; }
-        .icon-gm { background: #ffebee; color: #ea4335; }
-        .icon-ig { background: #fce4ec; color: #e1306c; }
+        .icon-whatsapp { background: rgba(37, 211, 102, 0.15); color: #25d366; }
+        .icon-email { background: rgba(239, 68, 68, 0.15); color: #ef4444; }
+        .icon-instagram { background: rgba(225, 48, 108, 0.15); color: #e1306c; }
 
         .contact-info h4 {
-            color: #64748b;
-            font-size: 0.8rem;
-            text-transform: uppercase;
+            color: #94a3b8;
+            font-size: 0.85rem;
             font-weight: 600;
-            margin-bottom: 2px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
         }
         .contact-info p {
-            color: #0f2043;
-            font-size: 0.95rem;
+            color: #ffffff;
+            font-size: 1rem;
             font-weight: 700;
         }
 
@@ -253,19 +252,19 @@
             padding: 0 20px;
         }
         .page-card {
-            background: #ffffff;
-            border-radius: 16px;
+            background: #1e293b;
+            border-radius: 20px;
             padding: 35px;
-            border: 1px solid #e2e8f0;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
         }
         .page-headline {
             font-size: 1.8rem;
             font-weight: 800;
-            color: #0f2043;
+            color: #ffffff;
             margin-bottom: 25px;
-            border-bottom: 3px solid #007991;
-            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 12px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -279,13 +278,13 @@
             gap: 12px;
         }
         .select-item {
-            background: #f8fafc;
-            border: 1px solid #cbd5e1;
-            padding: 16px 20px;
-            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 18px 24px;
+            border-radius: 12px;
             font-size: 1.05rem;
             font-weight: 700;
-            color: #1e293b;
+            color: #f1f5f9;
             cursor: pointer;
             display: flex;
             justify-content: space-between;
@@ -293,92 +292,92 @@
             transition: all 0.25s ease;
         }
         .select-item:hover {
-            background: #007991;
+            background: #0284c7;
             color: #ffffff;
-            border-color: #007991;
-            transform: translateX(5px);
+            border-color: #0284c7;
+            transform: translateX(6px);
         }
 
         /* Years List Style (2000 - 2026) */
         .years-container {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 12px;
             max-height: 500px;
             overflow-y: auto;
-            padding-right: 5px;
+            padding-right: 8px;
         }
         .year-row-item {
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
-            padding: 12px 20px;
-            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 14px 20px;
+            border-radius: 10px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             font-size: 1rem;
             font-weight: 600;
-            color: #334155;
+            color: #cbd5e1;
         }
         .click-here-btn {
-            background: #007991;
+            background: #0284c7;
             color: #ffffff;
-            padding: 6px 16px;
-            border-radius: 6px;
+            padding: 8px 18px;
+            border-radius: 8px;
             font-size: 0.85rem;
             font-weight: 700;
             cursor: pointer;
             transition: all 0.2s ease;
         }
         .click-here-btn:hover {
-            background: #0f2043;
+            background: #38bdf8;
+            color: #0f172a;
         }
 
         /* Buttons */
         .nav-back-btn {
-            background: #f1f5f9;
-            color: #0f2043;
-            border: 1px solid #cbd5e1;
-            padding: 8px 16px;
-            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.08);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 8px 18px;
+            border-radius: 8px;
             font-size: 0.85rem;
             font-weight: 700;
             cursor: pointer;
-            transition: background 0.2s;
+            transition: all 0.2s;
         }
         .nav-back-btn:hover {
-            background: #e2e8f0;
+            background: rgba(255, 255, 255, 0.18);
         }
 
         /* Coming Soon Page View */
         #comingSoonPage {
             display: none;
-            min-height: 60vh;
+            min-height: 50vh;
             text-align: center;
             padding: 80px 20px;
-            background: #ffffff;
             align-items: center;
             justify-content: center;
             flex-direction: column;
         }
         #comingSoonPage h2 {
             font-size: 2.5rem;
-            font-weight: 900;
+            font-weight: 800;
             margin-bottom: 15px;
-            color: #0f2043;
+            color: #ffffff;
         }
         #comingSoonPage p {
             font-size: 1.1rem;
-            color: #64748b;
+            color: #94a3b8;
             margin-bottom: 30px;
         }
 
         /* Footer */
         footer {
-            background: #0f2043;
+            background: #090d16;
             color: #ffffff;
-            padding: 40px 8% 25px;
-            border-top: 1px solid #1e293b;
+            padding: 50px 8% 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
         }
         .footer-container {
             display: flex;
@@ -393,9 +392,9 @@
             text-align: center;
             color: #64748b;
             font-size: 0.85rem;
-            margin-top: 30px;
-            border-top: 1px solid #1e293b;
-            padding-top: 15px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 20px;
         }
     </style>
 </head>
@@ -403,13 +402,13 @@
 
     <!-- Top Announcement Bar -->
     <div class="top-bar">
-        🚀 Launching Soon: <span>Get Exclusive Offers On Digital Assets!</span>
+        🚀 Official Store: Premium Digital Assets & Educational Resources
     </div>
 
     <!-- Header / Navbar -->
     <nav>
         <div class="logo" onclick="showMainHome()">
-            <i class="fa-solid fa-layer-group"></i> SZ <span>DIGITAL</span>
+            <i class="fa-solid fa-cube"></i> SZ <span>DIGITAL</span>
         </div>
         
         <!-- Professional Hamburger Menu -->
@@ -420,7 +419,7 @@
             
             <div class="dropdown-menu" id="dropdownMenu">
                 <a onclick="openComingSoonDirect('Canva Templates')">
-                    <span class="menu-item-title"><i class="fa-solid fa-palette" style="color: #00b4db;"></i> Canva Templates</span>
+                    <span class="menu-item-title"><i class="fa-solid fa-palette" style="color: #38bdf8;"></i> Canva Templates</span>
                 </a>
                 
                 <a onclick="openComingSoonDirect('CapCut Templates')">
@@ -433,11 +432,11 @@
 
                 <!-- O/L Resources Click -> Go to Medium Selection Page -->
                 <a onclick="openOlMediumPage()">
-                    <span class="menu-item-title"><i class="fa-solid fa-graduation-cap" style="color: #007991;"></i> O/L Education Resources</span>
+                    <span class="menu-item-title"><i class="fa-solid fa-graduation-cap" style="color: #34d399;"></i> O/L Education Resources</span>
                 </a>
 
                 <a onclick="openComingSoonDirect('A/L Education Resources')">
-                    <span class="menu-item-title"><i class="fa-solid fa-user-graduate" style="color: #8b5cf6;"></i> A/L Education Resources</span>
+                    <span class="menu-item-title"><i class="fa-solid fa-user-graduate" style="color: #a78bfa;"></i> A/L Education Resources</span>
                 </a>
             </div>
         </div>
@@ -446,40 +445,40 @@
     <!-- 1. Main Home Content -->
     <div id="mainContent">
         <section class="hero">
-            <div class="hero-content">
-                <div class="badge">SZ Digital Store</div>
-                <h1>Welcome to SZ Digital Items</h1>
-                <p>Educational resources, digital templates, ebooks, and creative assets designed for your success.</p>
-            </div>
+            <div class="badge"><i class="fa-solid fa-shield-halved"></i> Official Hub</div>
+            <h1>SZ Digital Items</h1>
+            <p>Your ultimate portal for premium educational papers, professional creative assets, templates, and ebooks.</p>
         </section>
 
         <!-- Official Contact Section -->
         <section class="contact-section">
-            <h3 class="contact-title">Get In Touch With Us</h3>
+            <h3 class="section-title">Connect With Us</h3>
             <div class="contact-grid">
                 <!-- WhatsApp -->
                 <a href="https://wa.me/94757663533" target="_blank" class="contact-card">
-                    <div class="contact-icon icon-wa">
+                    <div class="contact-icon icon-whatsapp">
                         <i class="fa-brands fa-whatsapp"></i>
                     </div>
                     <div class="contact-info">
-                        <h4>WhatsApp</h4>
+                        <h4>WhatsApp Support</h4>
                         <p>+94 757663533</p>
                     </div>
                 </a>
-                <!-- Gmail -->
+
+                <!-- Email -->
                 <a href="mailto:mhmsakeeb0@gmail.com" class="contact-card">
-                    <div class="contact-icon icon-gm">
-                        <i class="fa-solid fa-envelope"></i>
+                    <div class="contact-icon icon-email">
+                        <i class="fa-regular fa-envelope"></i>
                     </div>
                     <div class="contact-info">
-                        <h4>Email Us</h4>
+                        <h4>Official Email</h4>
                         <p>mhmsakeeb0@gmail.com</p>
                     </div>
                 </a>
+
                 <!-- Instagram -->
                 <a href="https://instagram.com/sz_digital_items" target="_blank" class="contact-card">
-                    <div class="contact-icon icon-ig">
+                    <div class="contact-icon icon-instagram">
                         <i class="fa-brands fa-instagram"></i>
                     </div>
                     <div class="contact-info">
@@ -495,20 +494,20 @@
     <div id="mediumPage" class="custom-page">
         <div class="page-card">
             <div class="page-headline">
-                <span>Medium Options</span>
+                <span>Select Medium</span>
                 <button class="nav-back-btn" onclick="showMainHome()"><i class="fa-solid fa-arrow-left"></i> Home</button>
             </div>
             <ul class="select-list">
                 <li class="select-item" onclick="openSubjectsPage('Tamil Medium')">
-                    <span>1. Tamil</span>
+                    <span>1. Tamil Medium</span>
                     <i class="fa-solid fa-chevron-right"></i>
                 </li>
                 <li class="select-item" onclick="openComingSoonDirect('O/L Resources - English Medium')">
-                    <span>2. English</span>
+                    <span>2. English Medium</span>
                     <i class="fa-solid fa-chevron-right"></i>
                 </li>
                 <li class="select-item" onclick="openComingSoonDirect('O/L Resources - Sinhala Medium')">
-                    <span>3. Sinhala</span>
+                    <span>3. Sinhala Medium</span>
                     <i class="fa-solid fa-chevron-right"></i>
                 </li>
             </ul>
@@ -519,7 +518,7 @@
     <div id="subjectsPage" class="custom-page">
         <div class="page-card">
             <div class="page-headline">
-                <span>Subjects</span>
+                <span>Select Subject</span>
                 <button class="nav-back-btn" onclick="openOlMediumPage()"><i class="fa-solid fa-arrow-left"></i> Back</button>
             </div>
             <ul class="select-list">
@@ -555,16 +554,16 @@
     <!-- 5. Coming Soon Page -->
     <div id="comingSoonPage">
         <h2 id="comingSoonTitle">Coming Soon</h2>
-        <p>🚀 We are updating the past paper files for this year. Stay tuned, coming very soon!</p>
-        <button class="nav-back-btn" style="padding: 12px 25px; font-size: 1rem;" onclick="showMainHome()"><i class="fa-solid fa-house"></i> Back to Home</button>
+        <p>🚀 We are updating the past paper files for this section. Stay tuned!</p>
+        <button class="nav-back-btn" style="padding: 12px 28px; font-size: 1rem;" onclick="showMainHome()"><i class="fa-solid fa-house"></i> Back to Home</button>
     </div>
 
     <!-- Footer -->
     <footer>
         <div class="footer-container">
             <div>
-                <h3 style="color: #00b4db;">SZ DIGITAL ITEMS</h3>
-                <p style="color: #94a3b8; font-size: 0.9rem;">Your Educational & Digital Resource Partner</p>
+                <h3 style="color: #38bdf8; font-size: 1.2rem;">SZ DIGITAL ITEMS</h3>
+                <p style="color: #64748b; font-size: 0.9rem;">Your trusted digital & education partner.</p>
             </div>
         </div>
         <div class="copyright">
