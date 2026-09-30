@@ -1,689 +1,417 @@
 <!DOCTYPE html>
-<html lang="ta">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SZ Digital Items - Official Digital & Educational Assets</title>
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-        }
-        body {
-            background-color: #0f172a;
-            color: #f8fafc;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modern E-Commerce Theme</title>
+  <style>
+    /* Global Reset & Base Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
 
-        /* Top Bar Announcement */
-        .top-bar {
-            background: linear-gradient(90deg, #0284c7, #3b82f6);
-            color: #ffffff;
-            text-align: center;
-            padding: 9px 15px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-        }
+    body {
+      background-color: #f8f9fa;
+      color: #1e293b;
+      line-height: 1.6;
+    }
 
-        /* Navigation Bar */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 16px 8%;
-            background: rgba(15, 23, 42, 0.85);
-            backdrop-filter: blur(16px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        .logo {
-            font-size: 1.6rem;
-            font-weight: 800;
-            letter-spacing: 0.5px;
-            color: #38bdf8;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .logo span {
-            color: #ffffff;
-        }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-        /* Hamburger Menu */
-        .menu-container {
-            position: relative;
-        }
-        .hamburger-btn {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            color: #ffffff;
-            font-size: 1.2rem;
-            width: 44px;
-            height: 44px;
-            border-radius: 12px;
-            cursor: pointer;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: all 0.3s ease;
-        }
-        .hamburger-btn:hover {
-            background: #0284c7;
-            border-color: #0284c7;
-            box-shadow: 0 4px 15px rgba(2, 132, 199, 0.4);
-        }
+    /* Navigation Bar */
+    header {
+      background: linear-gradient(90deg, rgba(15,32,67,0.85) 0%, rgba(0,121,145,0.85) 100%);
+      position: absolute;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 100;
+      color: #fff;
+    }
 
-        /* Dropdown Menu Box */
-        .dropdown-menu {
-            display: none;
-            position: absolute;
-            right: 0;
-            top: 55px;
-            background: #1e293b;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            width: 290px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-            overflow: hidden;
-            z-index: 200;
-            animation: fadeIn 0.25s ease-out;
-        }
-        .dropdown-menu.show {
-            display: block;
-        }
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 2rem;
+    }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
 
-        .dropdown-menu a {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            width: 100%;
-            padding: 14px 20px;
-            color: #cbd5e1;
-            text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: 600;
-            transition: all 0.2s ease;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            cursor: pointer;
-        }
-        .dropdown-menu a:hover {
-            background: rgba(2, 132, 199, 0.15);
-            color: #38bdf8;
-            padding-left: 24px;
-        }
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
 
-        .menu-item-title {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
+    .nav-links a:hover {
+      opacity: 0.8;
+    }
 
-        /* Main Page Wrapper */
-        #mainContent {
-            display: block;
-        }
+    .nav-icons {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-weight: 600;
+    }
 
-        /* Hero Section */
-        .hero {
-            position: relative;
-            padding: 90px 8% 70px;
-            background: radial-gradient(circle at top right, rgba(2, 132, 199, 0.25), transparent 50%),
-                        radial-gradient(circle at bottom left, rgba(59, 130, 246, 0.15), transparent 50%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(56, 189, 248, 0.1);
-            color: #38bdf8;
-            padding: 6px 18px;
-            border-radius: 30px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            margin-bottom: 24px;
-            text-transform: uppercase;
-            border: 1px solid rgba(56, 189, 248, 0.2);
-        }
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            line-height: 1.15;
-            margin-bottom: 20px;
-            max-width: 850px;
-            background: linear-gradient(135deg, #ffffff 30%, #94a3b8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .hero p {
-            font-size: 1.15rem;
-            color: #94a3b8;
-            margin-bottom: 40px;
-            max-width: 650px;
-        }
+    /* Hero Section */
+    .hero {
+      position: relative;
+      min-height: 85vh;
+      background: linear-gradient(90deg, rgba(15,32,67,0.7) 0%, rgba(0,121,145,0.7) 100%), 
+                  url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      color: #fff;
+      padding: 0 2rem;
+    }
 
-        /* Official Contact Grid Section */
-        .contact-section {
-            max-width: 1100px;
-            margin: 0 auto 80px;
-            padding: 0 8%;
-        }
-        .section-title {
-            text-align: center;
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: #ffffff;
-            margin-bottom: 35px;
-        }
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
-        .contact-card {
-            background: #1e293b;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            padding: 25px;
-            border-radius: 18px;
-            display: flex;
-            align-items: center;
-            gap: 18px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        .contact-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(56, 189, 248, 0.4);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-        .contact-icon {
-            width: 54px;
-            height: 54px;
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            flex-shrink: 0;
-        }
-        .icon-whatsapp { background: rgba(37, 211, 102, 0.15); color: #25d366; }
-        .icon-email { background: rgba(239, 68, 68, 0.15); color: #ef4444; }
-        .icon-instagram { background: rgba(225, 48, 108, 0.15); color: #e1306c; }
+    .hero-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      padding-top: 5rem;
+    }
 
-        .contact-info h4 {
-            color: #94a3b8;
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 4px;
-        }
-        .contact-info p {
-            color: #ffffff;
-            font-size: 1rem;
-            font-weight: 700;
-        }
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      max-width: 600px;
+    }
 
-        /* Generic Layout Pages Style */
-        .custom-page {
-            display: none;
-            max-width: 900px;
-            margin: 40px auto 80px;
-            padding: 0 20px;
-        }
-        .page-card {
-            background: #1e293b;
-            border-radius: 20px;
-            padding: 35px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-        }
-        .page-headline {
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: #ffffff;
-            margin-bottom: 25px;
-            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
-            padding-bottom: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
+    .hero p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      font-weight: 500;
+    }
 
-        /* Medium & Subject Selection List Styles */
-        .select-list {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-        .select-item {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            padding: 18px 24px;
-            border-radius: 12px;
-            font-size: 1.05rem;
-            font-weight: 700;
-            color: #f1f5f9;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: all 0.25s ease;
-        }
-        .select-item:hover {
-            background: #0284c7;
-            color: #ffffff;
-            border-color: #0284c7;
-            transform: translateX(6px);
-        }
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+    }
 
-        /* Years List Style (2000 - 2026) */
-        .years-container {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            max-height: 500px;
-            overflow-y: auto;
-            padding-right: 8px;
-        }
-        .year-row-item {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            padding: 14px 20px;
-            border-radius: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 1rem;
-            font-weight: 600;
-            color: #cbd5e1;
-        }
-        .click-here-btn {
-            background: #0284c7;
-            color: #ffffff;
-            padding: 8px 18px;
-            border-radius: 8px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-        .click-here-btn:hover {
-            background: #38bdf8;
-            color: #0f172a;
-        }
+    .btn {
+      padding: 0.8rem 1.8rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
 
-        /* Buttons */
-        .nav-back-btn {
-            background: rgba(255, 255, 255, 0.08);
-            color: #ffffff;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 8px 18px;
-            border-radius: 8px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        .nav-back-btn:hover {
-            background: rgba(255, 255, 255, 0.18);
-        }
+    .btn-primary {
+      background-color: #ffffff;
+      color: #0f2043;
+      border: 2px solid #ffffff;
+    }
 
-        /* Coming Soon Page View */
-        #comingSoonPage {
-            display: none;
-            min-height: 50vh;
-            text-align: center;
-            padding: 80px 20px;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-        }
-        #comingSoonPage h2 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 15px;
-            color: #ffffff;
-        }
-        #comingSoonPage p {
-            font-size: 1.1rem;
-            color: #94a3b8;
-            margin-bottom: 30px;
-        }
+    .btn-primary:hover {
+      background-color: transparent;
+      color: #ffffff;
+    }
 
-        /* Footer */
-        footer {
-            background: #090d16;
-            color: #ffffff;
-            padding: 50px 8% 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
-        }
-        .footer-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .copyright {
-            text-align: center;
-            color: #64748b;
-            font-size: 0.85rem;
-            margin-top: 40px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            padding-top: 20px;
-        }
-    </style>
+    .btn-outline {
+      background-color: transparent;
+      color: #ffffff;
+      border: 2px solid #ffffff;
+    }
+
+    .btn-outline:hover {
+      background-color: #ffffff;
+      color: #0f2043;
+    }
+
+    /* Brand Logos Bar */
+    .brands {
+      background-color: #ffffff;
+      padding: 2.5rem 2rem;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .brands-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      opacity: 0.6;
+      filter: grayscale(100%);
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
+    /* Category Cards Section */
+    .categories {
+      padding: 4rem 2rem;
+      background-color: #ffffff;
+    }
+
+    .categories-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .category-card {
+      position: relative;
+      height: 420px;
+      border-radius: 4px;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      padding: 2rem;
+      color: #ffffff;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .category-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(0deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.2) 60%);
+    }
+
+    .category-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .category-content h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .category-content p {
+      font-size: 0.85rem;
+      opacity: 0.9;
+      margin-bottom: 1.2rem;
+    }
+
+    /* Featured Products Section */
+    .products {
+      padding: 5rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-title h2 {
+      font-size: 2.2rem;
+      color: #0f172a;
+      position: relative;
+      display: inline-block;
+      padding-bottom: 0.75rem;
+    }
+
+    .section-title h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50px;
+      height: 3px;
+      background-color: #007991;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 2rem;
+    }
+
+    .product-card {
+      background: #ffffff;
+      border-radius: 6px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      border: 1px solid #f1f5f9;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    }
+
+    .badge-sale {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background-color: #007991;
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.2rem 0.5rem;
+      border-radius: 50%;
+      z-index: 2;
+    }
+
+    .product-image {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      background-color: #f1f5f9;
+    }
+
+    .product-info {
+      padding: 1rem;
+    }
+
+    .product-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #334155;
+      margin-bottom: 0.3rem;
+    }
+
+    .product-price {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #0f172a;
+    }
+  </style>
 </head>
 <body>
 
-    <!-- Top Announcement Bar -->
-    <div class="top-bar">
-        🚀 Official Store: Premium Digital Assets & Educational Resources
+  <!-- Navigation Bar -->
+  <header>
+    <div class="nav-container">
+      <div class="logo">DNK</div>
+      <ul class="nav-links">
+        <li><a href="#">Everything</a></li>
+        <li><a href="#">Women</a></li>
+        <li><a href="#">Men</a></li>
+        <li><a href="#">Accessories</a></li>
+      </ul>
+      <div class="nav-icons">
+        <a href="#">About</a>
+        <a href="#">Contact Us</a>
+        <span>$0.00</span>
+      </div>
     </div>
+  </header>
 
-    <!-- Header / Navbar -->
-    <nav>
-        <div class="logo" onclick="showMainHome()">
-            <i class="fa-solid fa-cube"></i> SZ <span>DIGITAL</span>
-        </div>
-        
-        <!-- Professional Hamburger Menu -->
-        <div class="menu-container">
-            <button class="hamburger-btn" id="menuToggle" aria-label="Menu">
-                <i class="fa-solid fa-bars" id="menuIcon"></i>
-            </button>
-            
-            <div class="dropdown-menu" id="dropdownMenu">
-                <a onclick="openComingSoonDirect('Canva Templates')">
-                    <span class="menu-item-title"><i class="fa-solid fa-palette" style="color: #38bdf8;"></i> Canva Templates</span>
-                </a>
-                
-                <a onclick="openComingSoonDirect('CapCut Templates')">
-                    <span class="menu-item-title"><i class="fa-solid fa-video" style="color: #f43f5e;"></i> CapCut Templates</span>
-                </a>
-                
-                <a onclick="openComingSoonDirect('Ebooks')">
-                    <span class="menu-item-title"><i class="fa-solid fa-book-open" style="color: #fbbf24;"></i> Ebooks</span>
-                </a>
-
-                <!-- O/L Resources Click -> Go to Medium Selection Page -->
-                <a onclick="openOlMediumPage()">
-                    <span class="menu-item-title"><i class="fa-solid fa-graduation-cap" style="color: #34d399;"></i> O/L Education Resources</span>
-                </a>
-
-                <a onclick="openComingSoonDirect('A/L Education Resources')">
-                    <span class="menu-item-title"><i class="fa-solid fa-user-graduate" style="color: #a78bfa;"></i> A/L Education Resources</span>
-                </a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- 1. Main Home Content -->
-    <div id="mainContent">
-        <section class="hero">
-            <div class="badge"><i class="fa-solid fa-shield-halved"></i> Official Hub</div>
-            <h1>SZ Digital Items</h1>
-            <p>Your ultimate portal for premium educational papers, professional creative assets, templates, and ebooks.</p>
-        </section>
-
-        <!-- Official Contact Section -->
-        <section class="contact-section">
-            <h3 class="section-title">Connect With Us</h3>
-            <div class="contact-grid">
-                <!-- WhatsApp -->
-                <a href="https://wa.me/94757663533" target="_blank" class="contact-card">
-                    <div class="contact-icon icon-whatsapp">
-                        <i class="fa-brands fa-whatsapp"></i>
-                    </div>
-                    <div class="contact-info">
-                        <h4>WhatsApp Support</h4>
-                        <p>+94 757663533</p>
-                    </div>
-                </a>
-
-                <!-- Email -->
-                <a href="mailto:mhmsakeeb0@gmail.com" class="contact-card">
-                    <div class="contact-icon icon-email">
-                        <i class="fa-regular fa-envelope"></i>
-                    </div>
-                    <div class="contact-info">
-                        <h4>Official Email</h4>
-                        <p>mhmsakeeb0@gmail.com</p>
-                    </div>
-                </a>
-
-                <!-- Instagram -->
-                <a href="https://instagram.com/sz_digital_items" target="_blank" class="contact-card">
-                    <div class="contact-icon icon-instagram">
-                        <i class="fa-brands fa-instagram"></i>
-                    </div>
-                    <div class="contact-info">
-                        <h4>Instagram</h4>
-                        <p>@sz_digital_items</p>
-                    </div>
-                </a>
-            </div>
-        </section>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Raining Offers For Hot Summer!</h1>
+      <p>25% Off On All Products</p>
+      <div class="btn-group">
+        <button class="btn btn-primary">Shop Now</button>
+        <button class="btn btn-outline">Find More</button>
+      </div>
     </div>
+  </section>
 
-    <!-- 2. O/L Medium Selection Page -->
-    <div id="mediumPage" class="custom-page">
-        <div class="page-card">
-            <div class="page-headline">
-                <span>Select Medium</span>
-                <button class="nav-back-btn" onclick="showMainHome()"><i class="fa-solid fa-arrow-left"></i> Home</button>
-            </div>
-            <ul class="select-list">
-                <li class="select-item" onclick="openSubjectsPage('Tamil Medium')">
-                    <span>1. Tamil Medium</span>
-                    <i class="fa-solid fa-chevron-right"></i>
-                </li>
-                <li class="select-item" onclick="openComingSoonDirect('O/L Resources - English Medium')">
-                    <span>2. English Medium</span>
-                    <i class="fa-solid fa-chevron-right"></i>
-                </li>
-                <li class="select-item" onclick="openComingSoonDirect('O/L Resources - Sinhala Medium')">
-                    <span>3. Sinhala Medium</span>
-                    <i class="fa-solid fa-chevron-right"></i>
-                </li>
-            </ul>
-        </div>
+  <!-- Partner Logos -->
+  <div class="brands">
+    <div class="brands-container">
+      <span>logoipsum</span>
+      <span>logoipsum</span>
+      <span>LOGO</span>
+      <span>logoipsum</span>
+      <span>logoipsum</span>
     </div>
+  </div>
 
-    <!-- 3. Tamil Medium Subjects Page -->
-    <div id="subjectsPage" class="custom-page">
-        <div class="page-card">
-            <div class="page-headline">
-                <span>Select Subject</span>
-                <button class="nav-back-btn" onclick="openOlMediumPage()"><i class="fa-solid fa-arrow-left"></i> Back</button>
-            </div>
-            <ul class="select-list">
-                <li class="select-item" onclick="openYearsPage('Tamil Language')"><span>1. Tamil Language</span> <i class="fa-solid fa-chevron-right"></i></li>
-                <li class="select-item" onclick="openYearsPage('English Language')"><span>2. English Language</span> <i class="fa-solid fa-chevron-right"></i></li>
-                <li class="select-item" onclick="openYearsPage('Science')"><span>3. Science</span> <i class="fa-solid fa-chevron-right"></i></li>
-                <li class="select-item" onclick="openYearsPage('Mathematics')"><span>4. Mathematics</span> <i class="fa-solid fa-chevron-right"></i></li>
-                <li class="select-item" onclick="openYearsPage('History')"><span>5. History</span> <i class="fa-solid fa-chevron-right"></i></li>
-                <li class="select-item" onclick="openYearsPage('Islam')"><span>6. Islam</span> <i class="fa-solid fa-chevron-right"></i></li>
-                <li class="select-item" onclick="openYearsPage('Information Technology (ICT)')"><span>7. Information Technology (ICT)</span> <i class="fa-solid fa-chevron-right"></i></li>
-                <li class="select-item" onclick="openYearsPage('Health Science')"><span>8. Health Science</span> <i class="fa-solid fa-chevron-right"></i></li>
-                <li class="select-item" onclick="openYearsPage('Agriculture')"><span>9. Agriculture</span> <i class="fa-solid fa-chevron-right"></i></li>
-                <li class="select-item" onclick="openYearsPage('Arts / Tamil Literature')"><span>10. Arts / Tamil Literature</span> <i class="fa-solid fa-chevron-right"></i></li>
-                <li class="select-item" onclick="openYearsPage('Geography')"><span>11. Geography</span> <i class="fa-solid fa-chevron-right"></i></li>
-                <li class="select-item" onclick="openYearsPage('Commerce')"><span>12. Commerce</span> <i class="fa-solid fa-chevron-right"></i></li>
-            </ul>
+  <!-- Category Feature Cards -->
+  <section class="categories">
+    <div class="categories-grid">
+      <div class="category-card" style="background-image: url('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80');">
+        <div class="category-content">
+          <h3>20% Off On Tank Tops</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <button class="btn btn-primary">Shop Now</button>
         </div>
+      </div>
+      <div class="category-card" style="background-image: url('https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=800&q=80');">
+        <div class="category-content">
+          <h3>Latest Eyewear For You</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <button class="btn btn-primary">Shop Now</button>
+        </div>
+      </div>
+      <div class="category-card" style="background-image: url('https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=800&q=80');">
+        <div class="category-content">
+          <h3>Let's Lorem Suit Up!</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <button class="btn btn-primary">Check Out</button>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <!-- 4. Years List Page (2000 to 2026) -->
-    <div id="yearsPage" class="custom-page">
-        <div class="page-card">
-            <div class="page-headline">
-                <span id="selectedSubjectTitle">Past Papers</span>
-                <button class="nav-back-btn" onclick="openSubjectsPage()"><i class="fa-solid fa-arrow-left"></i> Back</button>
-            </div>
-            <div class="years-container" id="yearsListContainer">
-                <!-- JavaScript Dynamic 2000 to 2026 List Inserted Here -->
-            </div>
-        </div>
+  <!-- Featured Products -->
+  <section class="products">
+    <div class="section-title">
+      <h2>Featured Products</h2>
     </div>
-
-    <!-- 5. Coming Soon Page -->
-    <div id="comingSoonPage">
-        <h2 id="comingSoonTitle">Coming Soon</h2>
-        <p>🚀 We are updating the past paper files for this section. Stay tuned!</p>
-        <button class="nav-back-btn" style="padding: 12px 28px; font-size: 1rem;" onclick="showMainHome()"><i class="fa-solid fa-house"></i> Back to Home</button>
+    <div class="products-grid">
+      <div class="product-card">
+        <span class="badge-sale">Sale!</span>
+        <img class="product-image" src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=500&q=80" alt="Product">
+        <div class="product-info">
+          <div class="product-title">DNK Yellow Shoes</div>
+          <div class="product-price">$120.00</div>
+        </div>
+      </div>
+      <div class="product-card">
+        <img class="product-image" src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=500&q=80" alt="Product">
+        <div class="product-info">
+          <div class="product-title">DNK Blue Shoes</div>
+          <div class="product-price">$80.00</div>
+        </div>
+      </div>
+      <div class="product-card">
+        <img class="product-image" src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=500&q=80" alt="Product">
+        <div class="product-info">
+          <div class="product-title">Dark Blue Jeans</div>
+          <div class="product-price">$95.00</div>
+        </div>
+      </div>
+      <div class="product-card">
+        <img class="product-image" src="https://images.unsplash.com/photo-1582552938357-32b906df40cb?auto=format&fit=crop&w=500&q=80" alt="Product">
+        <div class="product-info">
+          <div class="product-title">Blue Denim Jeans</div>
+          <div class="product-price">$110.00</div>
+        </div>
+      </div>
+      <div class="product-card">
+        <img class="product-image" src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=500&q=80" alt="Product">
+        <div class="product-info">
+          <div class="product-title">Basic Gray Jeans</div>
+          <div class="product-price">$85.00</div>
+        </div>
+      </div>
     </div>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-container">
-            <div>
-                <h3 style="color: #38bdf8; font-size: 1.2rem;">SZ DIGITAL ITEMS</h3>
-                <p style="color: #64748b; font-size: 0.9rem;">Your trusted digital & education partner.</p>
-            </div>
-        </div>
-        <div class="copyright">
-            &copy; 2026 SZ Digital Items. All rights reserved.
-        </div>
-    </footer>
-
-    <!-- JavaScript Logic -->
-    <script>
-        const menuToggle = document.getElementById('menuToggle');
-        const menuIcon = document.getElementById('menuIcon');
-        const dropdownMenu = document.getElementById('dropdownMenu');
-
-        const mainContent = document.getElementById('mainContent');
-        const mediumPage = document.getElementById('mediumPage');
-        const subjectsPage = document.getElementById('subjectsPage');
-        const yearsPage = document.getElementById('yearsPage');
-        const comingSoonPage = document.getElementById('comingSoonPage');
-        
-        const selectedSubjectTitle = document.getElementById('selectedSubjectTitle');
-        const yearsListContainer = document.getElementById('yearsListContainer');
-        const comingSoonTitle = document.getElementById('comingSoonTitle');
-
-        let currentSubject = "";
-
-        // Navigation Helper: Hide all views
-        function hideAllPages() {
-            mainContent.style.display = 'none';
-            mediumPage.style.display = 'none';
-            subjectsPage.style.display = 'none';
-            yearsPage.style.display = 'none';
-            comingSoonPage.style.display = 'none';
-            
-            // Close menu
-            dropdownMenu.classList.remove('show');
-            menuIcon.classList.remove('fa-xmark');
-            menuIcon.classList.add('fa-bars');
-        }
-
-        // Show Main Home Page
-        function showMainHome() {
-            hideAllPages();
-            mainContent.style.display = 'block';
-            window.scrollTo(0, 0);
-        }
-
-        // Step 1: Open O/L Medium Options Page
-        function openOlMediumPage() {
-            hideAllPages();
-            mediumPage.style.display = 'block';
-            window.scrollTo(0, 0);
-        }
-
-        // Step 2: Open Subjects List Page
-        function openSubjectsPage(mediumName) {
-            hideAllPages();
-            subjectsPage.style.display = 'block';
-            window.scrollTo(0, 0);
-        }
-
-        // Step 3: Open 2000 - 2026 Years Page for selected Subject
-        function openYearsPage(subjectName) {
-            if (subjectName) currentSubject = subjectName;
-            
-            hideAllPages();
-            selectedSubjectTitle.innerText = "O/L " + currentSubject + " (2000 - 2026)";
-            
-            // Render 2000 to 2026 Years List
-            let html = '';
-            for (let year = 2000; year <= 2026; year++) {
-                html += `
-                    <div class="year-row-item">
-                        <span>${year} - ${currentSubject} Past Paper</span>
-                        <span class="click-here-btn" onclick="openComingSoonYear('${year}', '${currentSubject}')">Click Here</span>
-                    </div>
-                `;
-            }
-            yearsListContainer.innerHTML = html;
-
-            yearsPage.style.display = 'block';
-            window.scrollTo(0, 0);
-        }
-
-        // Step 4: Show Coming Soon Page for specific Year
-        function openComingSoonYear(year, subject) {
-            hideAllPages();
-            comingSoonTitle.innerText = `${subject} - ${year} (Coming Soon)`;
-            comingSoonPage.style.display = 'flex';
-            window.scrollTo(0, 0);
-        }
-
-        // Direct Coming Soon Page
-        function openComingSoonDirect(title) {
-            hideAllPages();
-            comingSoonTitle.innerText = title + " - Coming Soon";
-            comingSoonPage.style.display = 'flex';
-            window.scrollTo(0, 0);
-        }
-
-        // Hamburger Menu Toggle
-        menuToggle.addEventListener('click', (e) => {
-            e.stopPropagation();
-            dropdownMenu.classList.toggle('show');
-            if (dropdownMenu.classList.contains('show')) {
-                menuIcon.classList.remove('fa-bars');
-                menuIcon.classList.add('fa-xmark');
-            } else {
-                menuIcon.classList.remove('fa-xmark');
-                menuIcon.classList.add('fa-bars');
-            }
-        });
-
-        document.addEventListener('click', (e) => {
-            if (!dropdownMenu.contains(e.target) && !menuToggle.contains(e.target)) {
-                dropdownMenu.classList.remove('show');
-                menuIcon.classList.remove('fa-xmark');
-                menuIcon.classList.add('fa-bars');
-            }
-        });
-    </script>
+  </section>
 
 </body>
 </html>
