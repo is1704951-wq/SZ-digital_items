@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SZ Digital Items - Premium Digital Assets & Resources</title>
+    <title>SZ Digital Items - O/L Resources Flow</title>
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -12,7 +12,6 @@
             margin: 0;
             padding: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            scroll-behavior: smooth;
         }
         body {
             background-color: #f8fafc;
@@ -21,34 +20,18 @@
             overflow-x: hidden;
         }
 
-        /* Top Bar Announcement & Quick Contact */
+        /* Top Bar Announcement */
         .top-bar {
             background: #0f172a;
             color: #94a3b8;
-            padding: 8px 8%;
+            text-align: center;
+            padding: 8px 15px;
             font-size: 0.85rem;
             font-weight: 500;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 10px;
         }
-        .top-bar-text span {
+        .top-bar span {
             color: #38bdf8;
             font-weight: 700;
-        }
-        .top-bar-contacts {
-            display: flex;
-            gap: 15px;
-        }
-        .top-bar-contacts a {
-            color: #cbd5e1;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        .top-bar-contacts a:hover {
-            color: #38bdf8;
         }
 
         /* Navigation Bar */
@@ -113,7 +96,7 @@
             background: #ffffff;
             border: 1px solid #e2e8f0;
             border-radius: 14px;
-            width: 230px;
+            width: 280px;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
             overflow: hidden;
             z-index: 200;
@@ -128,26 +111,32 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .dropdown-menu a {
+        .dropdown-menu a, .dropdown-btn {
             display: flex;
             align-items: center;
-            gap: 12px;
+            justify-content: space-between;
+            width: 100%;
             padding: 14px 18px;
             color: #334155;
             text-decoration: none;
             font-size: 0.95rem;
             font-weight: 600;
             transition: all 0.2s ease;
+            border: none;
+            background: transparent;
             border-bottom: 1px solid #f1f5f9;
             cursor: pointer;
+            text-align: left;
         }
-        .dropdown-menu a:last-child {
-            border-bottom: none;
-        }
-        .dropdown-menu a:hover {
+        .dropdown-menu a:hover, .dropdown-btn:hover {
             background: #f0f9ff;
             color: #0284c7;
-            padding-left: 22px;
+        }
+
+        .menu-item-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
 
         /* Main Page Wrapper */
@@ -158,7 +147,7 @@
         /* Hero Section */
         .hero {
             position: relative;
-            min-height: 520px;
+            min-height: 480px;
             background: linear-gradient(135deg, rgba(2, 132, 199, 0.88), rgba(15, 23, 42, 0.92)), url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
             display: flex;
             align-items: center;
@@ -183,248 +172,126 @@
             border: 1px solid rgba(255, 255, 255, 0.3);
         }
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 3.2rem;
             font-weight: 900;
             line-height: 1.15;
             margin-bottom: 18px;
         }
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: #e0f2fe;
             margin-bottom: 30px;
         }
-        .hero-btns {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-        .btn-primary {
-            background: #ffffff;
-            color: #0284c7;
-            padding: 14px 32px;
-            border-radius: 6px;
-            font-weight: 700;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-        }
-        .btn-primary:hover {
-            background: #0f172a;
-            color: #ffffff;
-            transform: translateY(-2px);
-        }
-        .btn-secondary {
-            border: 2px solid #ffffff;
-            color: #ffffff;
-            padding: 12px 30px;
-            border-radius: 6px;
-            font-weight: 700;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.15);
-            transform: translateY(-2px);
-        }
 
-        /* NEW: Front Page Contact Highlights */
-        .front-contact-section {
+        /* Generic Layout Pages Style */
+        .custom-page {
+            display: none;
+            max-width: 900px;
+            margin: 40px auto 80px;
+            padding: 0 20px;
+        }
+        .page-card {
             background: #ffffff;
-            padding: 50px 8%;
-            border-bottom: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 35px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.03);
         }
-        .front-contact-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .contact-section-title {
-            text-align: center;
+        .page-headline {
             font-size: 1.8rem;
             font-weight: 800;
             color: #0f172a;
-            margin-bottom: 8px;
+            margin-bottom: 25px;
+            border-bottom: 3px solid #0284c7;
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
-        .contact-section-sub {
-            text-align: center;
-            color: #64748b;
-            font-size: 0.95rem;
-            margin-bottom: 35px;
+
+        /* Medium & Subject Selection List Styles */
+        .select-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
         }
-        .front-contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
+        .select-item {
+            background: #f8fafc;
+            border: 1px solid #cbd5e1;
+            padding: 16px 20px;
+            border-radius: 10px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #1e293b;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.25s ease;
         }
-        .front-contact-card {
+        .select-item:hover {
+            background: #0284c7;
+            color: #ffffff;
+            border-color: #0284c7;
+            transform: translateX(5px);
+        }
+
+        /* Years List Style (2000 - 2026) */
+        .years-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-height: 500px;
+            overflow-y: auto;
+            padding-right: 5px;
+        }
+        .year-row-item {
             background: #f8fafc;
             border: 1px solid #e2e8f0;
-            border-radius: 14px;
-            padding: 25px;
+            padding: 12px 20px;
+            border-radius: 8px;
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            gap: 20px;
-            text-decoration: none;
-            color: inherit;
-            transition: all 0.3s ease;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #334155;
         }
-        .front-contact-card:hover {
-            transform: translateY(-5px);
-            background: #ffffff;
-            box-shadow: 0 12px 25px rgba(0,0,0,0.06);
-            border-color: #0284c7;
-        }
-        .contact-card-icon {
-            width: 55px;
-            height: 55px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.6rem;
+        .click-here-btn {
+            background: #0284c7;
             color: #ffffff;
-            flex-shrink: 0;
-        }
-        .contact-card-icon.wa { background: #25D366; }
-        .contact-card-icon.insta { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
-        .contact-card-icon.mail { background: #EA4335; }
-        
-        .contact-card-info h4 {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: #0f172a;
-            margin-bottom: 2px;
-        }
-        .contact-card-info p {
+            padding: 6px 16px;
+            border-radius: 6px;
             font-size: 0.85rem;
-            color: #64748b;
-        }
-
-        /* Category Banners Section */
-        .category-section {
-            max-width: 1200px;
-            margin: 60px auto;
-            padding: 0 20px;
-        }
-        .category-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 25px;
-        }
-        .category-card {
-            position: relative;
-            height: 260px;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            font-weight: 700;
             cursor: pointer;
-            transition: transform 0.3s ease;
+            transition: all 0.2s ease;
         }
-        .category-card:hover {
-            transform: translateY(-5px);
-        }
-        .category-card.bg-canva {
-            background: linear-gradient(to top, rgba(15, 23, 42, 0.85), rgba(2, 132, 199, 0.4)), url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80') center/cover;
-        }
-        .category-card.bg-capcut {
-            background: linear-gradient(to top, rgba(15, 23, 42, 0.85), rgba(244, 63, 94, 0.4)), url('https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=600&q=80') center/cover;
-        }
-        .category-card.bg-ebooks {
-            background: linear-gradient(to top, rgba(15, 23, 42, 0.85), rgba(251, 191, 36, 0.4)), url('https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=600&q=80') center/cover;
-        }
-        .card-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            padding: 25px;
-            color: #ffffff;
-        }
-        .card-overlay h3 {
-            font-size: 1.5rem;
-            font-weight: 800;
-            margin-bottom: 6px;
-        }
-        .card-overlay p {
-            font-size: 0.9rem;
-            color: #cbd5e1;
-            margin-bottom: 15px;
-        }
-        .card-btn {
-            display: inline-block;
-            background: #ffffff;
-            color: #0f172a;
-            padding: 8px 18px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            border-radius: 4px;
-            text-transform: uppercase;
+        .click-here-btn:hover {
+            background: #0f172a;
         }
 
-        /* Features Section */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px 20px 80px;
-        }
-        .section-title {
-            text-align: center;
-            font-size: 2.2rem;
-            font-weight: 800;
+        /* Buttons */
+        .nav-back-btn {
+            background: #f1f5f9;
             color: #0f172a;
-            margin-bottom: 10px;
-        }
-        .section-subtitle {
-            text-align: center;
-            color: #64748b;
-            margin-bottom: 50px;
-            font-size: 1.05rem;
-        }
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-        .feature-card {
-            background: #ffffff;
-            padding: 40px 30px;
-            border-radius: 16px;
-            border: 1px solid #e2e8f0;
-            text-align: center;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
-        }
-        .feature-card:hover {
-            transform: translateY(-8px);
-            border-color: #0284c7;
-            box-shadow: 0 15px 30px rgba(2, 132, 199, 0.1);
-        }
-        .feature-icon {
-            width: 65px;
-            height: 65px;
-            background: #f0f9ff;
-            color: #0284c7;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.6rem;
-            margin: 0 auto 20px;
-        }
-        .feature-card h3 {
-            color: #0f172a;
-            font-size: 1.3rem;
-            margin-bottom: 12px;
+            border: 1px solid #cbd5e1;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 0.85rem;
             font-weight: 700;
+            cursor: pointer;
+            transition: background 0.2s;
         }
-        .feature-card p {
-            color: #64748b;
-            font-size: 0.95rem;
+        .nav-back-btn:hover {
+            background: #e2e8f0;
         }
 
         /* Coming Soon Page View */
         #comingSoonPage {
             display: none;
-            min-height: 65vh;
+            min-height: 60vh;
             text-align: center;
             padding: 80px 20px;
             background: #ffffff;
@@ -433,40 +300,22 @@
             flex-direction: column;
         }
         #comingSoonPage h2 {
-            font-size: 2.8rem;
+            font-size: 2.5rem;
             font-weight: 900;
             margin-bottom: 15px;
             color: #0f172a;
         }
         #comingSoonPage p {
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             color: #64748b;
             margin-bottom: 30px;
-            max-width: 500px;
-        }
-        .back-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 12px 30px;
-            background: #0284c7;
-            color: #ffffff;
-            font-weight: 700;
-            border-radius: 6px;
-            text-decoration: none;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        .back-btn:hover {
-            background: #0f172a;
         }
 
-        /* Footer Section */
+        /* Footer */
         footer {
             background: #0f172a;
             color: #ffffff;
-            padding: 50px 8% 30px;
+            padding: 40px 8% 25px;
             border-top: 1px solid #1e293b;
         }
         .footer-container {
@@ -474,279 +323,252 @@
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 25px;
+            gap: 20px;
             max-width: 1200px;
             margin: 0 auto;
         }
-        .footer-brand h2 {
-            font-size: 1.6rem;
-            font-weight: 800;
-            color: #38bdf8;
-        }
-        .footer-brand p {
-            color: #94a3b8;
-            font-size: 0.9rem;
-            margin-top: 4px;
-        }
-
-        .footer-contacts {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-        .contact-btn {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 20px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-size: 0.88rem;
-            font-weight: 600;
-            color: #ffffff;
-            transition: all 0.3s ease;
-            background: #1e293b;
-            border: 1px solid #334155;
-        }
-        .contact-btn.whatsapp:hover {
-            background: #25D366;
-            border-color: #25D366;
-        }
-        .contact-btn.instagram:hover {
-            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
-            border-color: #dc2743;
-        }
-        .contact-btn.gmail:hover {
-            background: #EA4335;
-            border-color: #EA4335;
-        }
-
         .copyright {
             text-align: center;
             color: #64748b;
             font-size: 0.85rem;
-            margin-top: 40px;
+            margin-top: 30px;
             border-top: 1px solid #1e293b;
-            padding-top: 20px;
-        }
-
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.3rem;
-            }
-            .hero {
-                padding: 50px 20px;
-            }
-            .top-bar {
-                justify-content: center;
-                text-align: center;
-            }
-            .footer-container {
-                flex-direction: column;
-                text-align: center;
-            }
-            .footer-contacts {
-                justify-content: center;
-            }
+            padding-top: 15px;
         }
     </style>
 </head>
 <body>
 
-    <!-- Top Announcement & Quick Contact Bar -->
+    <!-- Top Announcement Bar -->
     <div class="top-bar">
-        <div class="top-bar-text">
-            🚀 Launching Soon: <span>Get Exclusive Offers On Digital Assets!</span>
-        </div>
-        <div class="top-bar-contacts">
-            <a href="https://wa.me/94757663533" target="_blank"><i class="fa-brands fa-whatsapp"></i> +94 75 766 3533</a>
-            <a href="mailto:mhmsakeeb0@gmail.com"><i class="fa-solid fa-envelope"></i> Support</a>
-        </div>
+        🚀 Launching Soon: <span>Get Exclusive Offers On Digital Assets!</span>
     </div>
 
     <!-- Header / Navbar -->
     <nav>
-        <div class="logo" onclick="showHomePage()">
+        <div class="logo" onclick="showMainHome()">
             <i class="fa-solid fa-layer-group"></i> SZ <span>DIGITAL</span>
         </div>
         
-        <!-- Hamburger Menu -->
+        <!-- Professional Hamburger Menu -->
         <div class="menu-container">
             <button class="hamburger-btn" id="menuToggle" aria-label="Menu">
                 <i class="fa-solid fa-bars" id="menuIcon"></i>
             </button>
             
             <div class="dropdown-menu" id="dropdownMenu">
-                <a onclick="openComingSoon('Canva Templates')"><i class="fa-solid fa-palette" style="color: #00c4cc;"></i> Canva Templates</a>
-                <a onclick="openComingSoon('CapCut Templates')"><i class="fa-solid fa-video" style="color: #f43f5e;"></i> CapCut Templates</a>
-                <a onclick="openComingSoon('Ebooks')"><i class="fa-solid fa-book-open" style="color: #fbbf24;"></i> Ebooks</a>
-                <a href="#contactSection"><i class="fa-solid fa-headset" style="color: #25D366;"></i> Contact Us</a>
+                <a onclick="openComingSoonDirect('Canva Templates')">
+                    <span class="menu-item-title"><i class="fa-solid fa-palette" style="color: #00c4cc;"></i> Canva Templates</span>
+                </a>
+                
+                <a onclick="openComingSoonDirect('CapCut Templates')">
+                    <span class="menu-item-title"><i class="fa-solid fa-video" style="color: #f43f5e;"></i> CapCut Templates</span>
+                </a>
+                
+                <a onclick="openComingSoonDirect('Ebooks')">
+                    <span class="menu-item-title"><i class="fa-solid fa-book-open" style="color: #fbbf24;"></i> Ebooks</span>
+                </a>
+
+                <!-- O/L Resources Click -> Go to Medium Selection Page -->
+                <a onclick="openOlMediumPage()">
+                    <span class="menu-item-title"><i class="fa-solid fa-graduation-cap" style="color: #10b981;"></i> O/L Education Resources</span>
+                </a>
+
+                <a onclick="openComingSoonDirect('A/L Education Resources')">
+                    <span class="menu-item-title"><i class="fa-solid fa-user-graduate" style="color: #8b5cf6;"></i> A/L Education Resources</span>
+                </a>
             </div>
         </div>
     </nav>
 
-    <!-- Main Home Page Content -->
+    <!-- 1. Main Home Content -->
     <div id="mainContent">
-        <!-- Hero Section -->
         <section class="hero">
             <div class="hero-content">
-                <div class="badge">SZ Premium Digital Store</div>
-                <h1>Elevate Your Digital Experience!</h1>
-                <p>High-quality digital assets, templates, and creative tools tailored for content creators and modern entrepreneurs.</p>
-                <div class="hero-btns">
-                    <a href="#categories" class="btn-primary">EXPLORE NOW</a>
-                    <a href="#contactSection" class="btn-secondary">GET IN TOUCH</a>
-                </div>
+                <div class="badge">SZ Digital Store</div>
+                <h1>Welcome to SZ Digital Items</h1>
+                <p>Educational resources, digital templates, ebooks, and creative assets designed for your success.</p>
             </div>
         </section>
+    </div>
 
-        <!-- Professional Front-Page Contact Section -->
-        <section class="front-contact-section" id="contactSection">
-            <div class="front-contact-container">
-                <h2 class="contact-section-title">Direct Customer Support</h2>
-                <p class="contact-section-sub">Need custom orders, inquiries, or support? Connect with us instantly!</p>
-                
-                <div class="front-contact-grid">
-                    <!-- WhatsApp -->
-                    <a href="https://wa.me/94757663533" target="_blank" class="front-contact-card">
-                        <div class="contact-card-icon wa">
-                            <i class="fa-brands fa-whatsapp"></i>
-                        </div>
-                        <div class="contact-card-info">
-                            <h4>Chat on WhatsApp</h4>
-                            <p>Instant Reply: +94 75 766 3533</p>
-                        </div>
-                    </a>
-
-                    <!-- Instagram -->
-                    <a href="https://www.instagram.com/sz_digital_items?stkn=OHh6amdoejV4MG1n" target="_blank" class="front-contact-card">
-                        <div class="contact-card-icon insta">
-                            <i class="fa-brands fa-instagram"></i>
-                        </div>
-                        <div class="contact-card-info">
-                            <h4>Follow Instagram</h4>
-                            <p>@sz_digital_items</p>
-                        </div>
-                    </a>
-
-                    <!-- Email -->
-                    <a href="mailto:mhmsakeeb0@gmail.com" class="front-contact-card">
-                        <div class="contact-card-icon mail">
-                            <i class="fa-solid fa-envelope"></i>
-                        </div>
-                        <div class="contact-card-info">
-                            <h4>Email Assistance</h4>
-                            <p>mhmsakeeb0@gmail.com</p>
-                        </div>
-                    </a>
-                </div>
+    <!-- 2. O/L Medium Selection Page -->
+    <div id="mediumPage" class="custom-page">
+        <div class="page-card">
+            <div class="page-headline">
+                <span>Medium Options</span>
+                <button class="nav-back-btn" onclick="showMainHome()"><i class="fa-solid fa-arrow-left"></i> Home</button>
             </div>
-        </section>
+            <ul class="select-list">
+                <li class="select-item" onclick="openSubjectsPage('Tamil Medium')">
+                    <span>1. Tamil</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </li>
+                <li class="select-item" onclick="openComingSoonDirect('O/L Resources - English Medium')">
+                    <span>2. English</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </li>
+                <li class="select-item" onclick="openComingSoonDirect('O/L Resources - Sinhala Medium')">
+                    <span>3. Sinhala</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </li>
+            </ul>
+        </div>
+    </div>
 
-        <!-- Category Banners Section -->
-        <section class="category-section" id="categories">
-            <div class="category-grid">
-                <div class="category-card bg-canva" onclick="openComingSoon('Canva Templates')">
-                    <div class="card-overlay">
-                        <h3>Canva Templates</h3>
-                        <p>Professional social graphics & designs</p>
-                        <span class="card-btn">BROWSE NOW</span>
-                    </div>
-                </div>
-
-                <div class="category-card bg-capcut" onclick="openComingSoon('CapCut Templates')">
-                    <div class="card-overlay">
-                        <h3>CapCut Templates</h3>
-                        <p>Trending short-form video assets</p>
-                        <span class="card-btn">EXPLORE MORE</span>
-                    </div>
-                </div>
-
-                <div class="category-card bg-ebooks" onclick="openComingSoon('Ebooks')">
-                    <div class="card-overlay">
-                        <h3>Digital Ebooks</h3>
-                        <p>Insightful guides & creative resources</p>
-                        <span class="card-btn">VIEW ALL</span>
-                    </div>
-                </div>
+    <!-- 3. Tamil Medium Subjects Page -->
+    <div id="subjectsPage" class="custom-page">
+        <div class="page-card">
+            <div class="page-headline">
+                <span>Subjects</span>
+                <button class="nav-back-btn" onclick="openOlMediumPage()"><i class="fa-solid fa-arrow-left"></i> Back</button>
             </div>
-        </section>
+            <ul class="select-list">
+                <li class="select-item" onclick="openYearsPage('Tamil Language')"><span>1. Tamil Language</span> <i class="fa-solid fa-chevron-right"></i></li>
+                <li class="select-item" onclick="openYearsPage('English Language')"><span>2. English Language</span> <i class="fa-solid fa-chevron-right"></i></li>
+                <li class="select-item" onclick="openYearsPage('Science')"><span>3. Science</span> <i class="fa-solid fa-chevron-right"></i></li>
+                <li class="select-item" onclick="openYearsPage('Mathematics')"><span>4. Mathematics</span> <i class="fa-solid fa-chevron-right"></i></li>
+                <li class="select-item" onclick="openYearsPage('History')"><span>5. History</span> <i class="fa-solid fa-chevron-right"></i></li>
+                <li class="select-item" onclick="openYearsPage('Islam')"><span>6. Islam</span> <i class="fa-solid fa-chevron-right"></i></li>
+                <li class="select-item" onclick="openYearsPage('Information Technology (ICT)')"><span>7. Information Technology (ICT)</span> <i class="fa-solid fa-chevron-right"></i></li>
+                <li class="select-item" onclick="openYearsPage('Health Science')"><span>8. Health Science</span> <i class="fa-solid fa-chevron-right"></i></li>
+                <li class="select-item" onclick="openYearsPage('Agriculture')"><span>9. Agriculture</span> <i class="fa-solid fa-chevron-right"></i></li>
+                <li class="select-item" onclick="openYearsPage('Arts / Tamil Literature')"><span>10. Arts / Tamil Literature</span> <i class="fa-solid fa-chevron-right"></i></li>
+                <li class="select-item" onclick="openYearsPage('Geography')"><span>11. Geography</span> <i class="fa-solid fa-chevron-right"></i></li>
+                <li class="select-item" onclick="openYearsPage('Commerce')"><span>12. Commerce</span> <i class="fa-solid fa-chevron-right"></i></li>
+            </ul>
+        </div>
+    </div>
 
-        <!-- Features / Why Choose Us Section -->
-        <div class="container">
-            <h2 class="section-title">Why Choose SZ Digital Items?</h2>
-            <p class="section-subtitle">We deliver premium resources designed to boost your efficiency</p>
-            
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fa-solid fa-bolt"></i></div>
-                    <h3>Instant Download</h3>
-                    <p>Access all your purchased files and templates immediately after checkout.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fa-solid fa-crown"></i></div>
-                    <h3>Premium Quality</h3>
-                    <p>Expertly designed digital products built to level up your content.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fa-solid fa-shield-halved"></i></div>
-                    <h3>100% Secure</h3>
-                    <p>Safe and verified digital downloads for creators and businesses.</p>
-                </div>
+    <!-- 4. Years List Page (2000 to 2026) -->
+    <div id="yearsPage" class="custom-page">
+        <div class="page-card">
+            <div class="page-headline">
+                <span id="selectedSubjectTitle">Past Papers</span>
+                <button class="nav-back-btn" onclick="openSubjectsPage()"><i class="fa-solid fa-arrow-left"></i> Back</button>
+            </div>
+            <div class="years-container" id="yearsListContainer">
+                <!-- JavaScript Dynamic 2000 to 2026 List Inserted Here -->
             </div>
         </div>
     </div>
 
-    <!-- Coming Soon Page View -->
+    <!-- 5. Coming Soon Page -->
     <div id="comingSoonPage">
-        <h2 id="categoryTitle">Canva Templates</h2>
-        <p>🚀 We are working hard to prepare top-quality resources for this category. Stay tuned, coming very soon!</p>
-        <button class="back-btn" onclick="showHomePage()"><i class="fa-solid fa-arrow-left"></i> Back to Home</button>
+        <h2 id="comingSoonTitle">Coming Soon</h2>
+        <p>🚀 We are updating the past paper files for this year. Stay tuned, coming very soon!</p>
+        <button class="nav-back-btn" style="padding: 12px 25px; font-size: 1rem;" onclick="showMainHome()"><i class="fa-solid fa-house"></i> Back to Home</button>
     </div>
 
     <!-- Footer -->
     <footer>
         <div class="footer-container">
-            <div class="footer-brand">
-                <h2>SZ DIGITAL ITEMS</h2>
-                <p>Your Trustworthy Digital Resource Partner</p>
-            </div>
-
-            <div class="footer-contacts">
-                <a href="https://wa.me/94757663533" target="_blank" class="contact-btn whatsapp">
-                    <i class="fa-brands fa-whatsapp"></i> WhatsApp
-                </a>
-                <a href="https://www.instagram.com/sz_digital_items?stkn=OHh6amdoejV4MG1n" target="_blank" class="contact-btn instagram">
-                    <i class="fa-brands fa-instagram"></i> Instagram
-                </a>
-                <a href="mailto:mhmsakeeb0@gmail.com" class="contact-btn gmail">
-                    <i class="fa-solid fa-envelope"></i> Gmail
-                </a>
+            <div>
+                <h3 style="color: #38bdf8;">SZ DIGITAL ITEMS</h3>
+                <p style="color: #94a3b8; font-size: 0.9rem;">Your Educational & Digital Resource Partner</p>
             </div>
         </div>
-
         <div class="copyright">
             &copy; 2026 SZ Digital Items. All rights reserved.
         </div>
     </footer>
 
-    <!-- JavaScript -->
+    <!-- JavaScript Logic -->
     <script>
         const menuToggle = document.getElementById('menuToggle');
         const menuIcon = document.getElementById('menuIcon');
         const dropdownMenu = document.getElementById('dropdownMenu');
-        const mainContent = document.getElementById('mainContent');
-        const comingSoonPage = document.getElementById('comingSoonPage');
-        const categoryTitle = document.getElementById('categoryTitle');
 
+        const mainContent = document.getElementById('mainContent');
+        const mediumPage = document.getElementById('mediumPage');
+        const subjectsPage = document.getElementById('subjectsPage');
+        const yearsPage = document.getElementById('yearsPage');
+        const comingSoonPage = document.getElementById('comingSoonPage');
+        
+        const selectedSubjectTitle = document.getElementById('selectedSubjectTitle');
+        const yearsListContainer = document.getElementById('yearsListContainer');
+        const comingSoonTitle = document.getElementById('comingSoonTitle');
+
+        let currentSubject = "";
+
+        // Navigation Helper: Hide all views
+        function hideAllPages() {
+            mainContent.style.display = 'none';
+            mediumPage.style.display = 'none';
+            subjectsPage.style.display = 'none';
+            yearsPage.style.display = 'none';
+            comingSoonPage.style.display = 'none';
+            
+            // Close menu
+            dropdownMenu.classList.remove('show');
+            menuIcon.classList.remove('fa-xmark');
+            menuIcon.classList.add('fa-bars');
+        }
+
+        // Show Main Home Page
+        function showMainHome() {
+            hideAllPages();
+            mainContent.style.display = 'block';
+            window.scrollTo(0, 0);
+        }
+
+        // Step 1: Open O/L Medium Options Page
+        function openOlMediumPage() {
+            hideAllPages();
+            mediumPage.style.display = 'block';
+            window.scrollTo(0, 0);
+        }
+
+        // Step 2: Open Subjects List Page
+        function openSubjectsPage(mediumName) {
+            hideAllPages();
+            subjectsPage.style.display = 'block';
+            window.scrollTo(0, 0);
+        }
+
+        // Step 3: Open 2000 - 2026 Years Page for selected Subject
+        function openYearsPage(subjectName) {
+            if (subjectName) currentSubject = subjectName;
+            
+            hideAllPages();
+            selectedSubjectTitle.innerText = "O/L " + currentSubject + " (2000 - 2026)";
+            
+            // Render 2000 to 2026 Years List
+            let html = '';
+            for (let year = 2000; year <= 2026; year++) {
+                html += `
+                    <div class="year-row-item">
+                        <span>${year} - ${currentSubject} Past Paper</span>
+                        <span class="click-here-btn" onclick="openComingSoonYear('${year}', '${currentSubject}')">Click Here</span>
+                    </div>
+                `;
+            }
+            yearsListContainer.innerHTML = html;
+
+            yearsPage.style.display = 'block';
+            window.scrollTo(0, 0);
+        }
+
+        // Step 4: Show Coming Soon Page for specific Year
+        function openComingSoonYear(year, subject) {
+            hideAllPages();
+            comingSoonTitle.innerText = `${subject} - ${year} (Coming Soon)`;
+            comingSoonPage.style.display = 'flex';
+            window.scrollTo(0, 0);
+        }
+
+        // Direct Coming Soon Page
+        function openComingSoonDirect(title) {
+            hideAllPages();
+            comingSoonTitle.innerText = title + " - Coming Soon";
+            comingSoonPage.style.display = 'flex';
+            window.scrollTo(0, 0);
+        }
+
+        // Hamburger Menu Toggle
         menuToggle.addEventListener('click', (e) => {
             e.stopPropagation();
             dropdownMenu.classList.toggle('show');
-            
             if (dropdownMenu.classList.contains('show')) {
                 menuIcon.classList.remove('fa-bars');
                 menuIcon.classList.add('fa-xmark');
@@ -763,23 +585,6 @@
                 menuIcon.classList.add('fa-bars');
             }
         });
-
-        function openComingSoon(categoryName) {
-            dropdownMenu.classList.remove('show');
-            menuIcon.classList.remove('fa-xmark');
-            menuIcon.classList.add('fa-bars');
-            
-            mainContent.style.display = 'none';
-            comingSoonPage.style.display = 'flex';
-            categoryTitle.innerText = categoryName + ' - Coming Soon';
-            window.scrollTo(0, 0);
-        }
-
-        function showHomePage() {
-            comingSoonPage.style.display = 'none';
-            mainContent.style.display = 'block';
-            window.scrollTo(0, 0);
-        }
     </script>
 
 </body>
