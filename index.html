@@ -96,11 +96,13 @@
             background: #ffffff;
             border: 1px solid #e2e8f0;
             border-radius: 14px;
-            width: 230px;
+            width: 260px;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
             overflow: hidden;
             z-index: 200;
             animation: fadeIn 0.2s ease-out;
+            max-height: 80vh;
+            overflow-y: auto;
         }
         .dropdown-menu.show {
             display: block;
@@ -111,26 +113,65 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .dropdown-menu a {
+        .dropdown-menu a, .dropdown-btn {
             display: flex;
             align-items: center;
-            gap: 12px;
+            justify-content: space-between;
+            width: 100%;
             padding: 14px 18px;
             color: #334155;
             text-decoration: none;
             font-size: 0.95rem;
             font-weight: 600;
             transition: all 0.2s ease;
+            border: none;
+            background: transparent;
             border-bottom: 1px solid #f1f5f9;
             cursor: pointer;
+            text-align: left;
         }
-        .dropdown-menu a:last-child {
-            border-bottom: none;
-        }
-        .dropdown-menu a:hover {
+        .dropdown-menu a:hover, .dropdown-btn:hover {
             background: #f0f9ff;
             color: #0284c7;
-            padding-left: 22px;
+        }
+
+        .menu-item-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        /* Submenu Style */
+        .submenu {
+            display: none;
+            background-color: #f8fafc;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        .submenu.show {
+            display: block;
+        }
+        .submenu a {
+            padding: 10px 18px 10px 45px;
+            font-size: 0.88rem;
+            color: #475569;
+            font-weight: 500;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .submenu a:last-child {
+            border-bottom: none;
+        }
+        .submenu a:hover {
+            color: #0284c7;
+            background: #e0f2fe;
+            padding-left: 48px;
+        }
+
+        .arrow-icon {
+            font-size: 0.75rem;
+            transition: transform 0.3s ease;
+        }
+        .dropdown-btn.active .arrow-icon {
+            transform: rotate(180deg);
         }
 
         /* Main Page Wrapper */
@@ -485,9 +526,43 @@
             </button>
             
             <div class="dropdown-menu" id="dropdownMenu">
-                <a onclick="openComingSoon('Canva Templates')"><i class="fa-solid fa-palette" style="color: #00c4cc;"></i> Canva Templates</a>
-                <a onclick="openComingSoon('CapCut Templates')"><i class="fa-solid fa-video" style="color: #f43f5e;"></i> CapCut Templates</a>
-                <a onclick="openComingSoon('Ebooks')"><i class="fa-solid fa-book-open" style="color: #fbbf24;"></i> Ebooks</a>
+                <!-- 1st Item -->
+                <a onclick="openComingSoon('Canva Templates')">
+                    <span class="menu-item-title"><i class="fa-solid fa-palette" style="color: #00c4cc;"></i> Canva Templates</span>
+                </a>
+                
+                <!-- 2nd Item -->
+                <a onclick="openComingSoon('CapCut Templates')">
+                    <span class="menu-item-title"><i class="fa-solid fa-video" style="color: #f43f5e;"></i> CapCut Templates</span>
+                </a>
+                
+                <!-- 3rd Item -->
+                <a onclick="openComingSoon('Ebooks')">
+                    <span class="menu-item-title"><i class="fa-solid fa-book-open" style="color: #fbbf24;"></i> Ebooks</span>
+                </a>
+
+                <!-- 4th Item: O/L Education Resources -->
+                <button class="dropdown-btn" onclick="toggleSubmenu('olSubmenu', this)">
+                    <span class="menu-item-title"><i class="fa-solid fa-graduation-cap" style="color: #10b981;"></i> O/L Education Resources</span>
+                    <i class="fa-solid fa-chevron-down arrow-icon"></i>
+                </button>
+                <div class="submenu" id="olSubmenu">
+                    <a onclick="openComingSoon('O/L Past Papers')"><i class="fa-solid fa-file-pdf"></i> Past Papers</a>
+                    <a onclick="openComingSoon('O/L Model Papers')"><i class="fa-solid fa-file-lines"></i> Model Papers</a>
+                    <a onclick="openComingSoon('O/L Term Papers')"><i class="fa-solid fa-copy"></i> Term Papers</a>
+                </div>
+
+                <!-- 5th Item: A/L Education Resources -->
+                <button class="dropdown-btn" onclick="toggleSubmenu('alSubmenu', this)">
+                    <span class="menu-item-title"><i class="fa-solid fa-user-graduate" style="color: #8b5cf6;"></i> A/L Education Resources</span>
+                    <i class="fa-solid fa-chevron-down arrow-icon"></i>
+                </button>
+                <div class="submenu" id="alSubmenu">
+                    <a onclick="openComingSoon('A/L Past Papers')"><i class="fa-solid fa-file-pdf"></i> Past Papers</a>
+                    <a onclick="openComingSoon('A/L Model Papers')"><i class="fa-solid fa-file-lines"></i> Model Papers</a>
+                    <a onclick="openComingSoon('A/L Term Papers')"><i class="fa-solid fa-copy"></i> Term Papers</a>
+                    <a onclick="openComingSoon('A/L FWC Papers')"><i class="fa-solid fa-file-pen"></i> FWC Papers</a>
+                </div>
             </div>
         </div>
     </nav>
@@ -615,6 +690,7 @@
             } else {
                 menuIcon.classList.remove('fa-xmark');
                 menuIcon.classList.add('fa-bars');
+                closeAllSubmenus();
             }
         });
 
@@ -623,13 +699,32 @@
                 dropdownMenu.classList.remove('show');
                 menuIcon.classList.remove('fa-xmark');
                 menuIcon.classList.add('fa-bars');
+                closeAllSubmenus();
             }
         });
+
+        function toggleSubmenu(id, btn) {
+            const targetSubmenu = document.getElementById(id);
+            const isOpen = targetSubmenu.classList.contains('show');
+            
+            closeAllSubmenus();
+
+            if (!isOpen) {
+                targetSubmenu.classList.add('show');
+                btn.classList.add('active');
+            }
+        }
+
+        function closeAllSubmenus() {
+            document.querySelectorAll('.submenu').forEach(sub => sub.classList.remove('show'));
+            document.querySelectorAll('.dropdown-btn').forEach(btn => btn.classList.remove('active'));
+        }
 
         function openComingSoon(categoryName) {
             dropdownMenu.classList.remove('show');
             menuIcon.classList.remove('fa-xmark');
             menuIcon.classList.add('fa-bars');
+            closeAllSubmenus();
             
             mainContent.style.display = 'none';
             comingSoonPage.style.display = 'flex';
