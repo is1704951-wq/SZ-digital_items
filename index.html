@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Super Mario Game</title>
+    <title>My Website</title>
     <style>
         * {
             margin: 0;
@@ -22,7 +22,7 @@
             flex-direction: column;
         }
 
-        #game-container {
+        #main-container {
             position: relative;
             width: 800px;
             height: 400px;
@@ -30,52 +30,9 @@
             border: 4px solid #fff;
             overflow: hidden;
             box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-        }
-
-        #mario {
-            position: absolute;
-            width: 32px;
-            height: 40px;
-            background-color: #e52521;
-            bottom: 120px;
-            left: 50px;
-            border-radius: 4px;
-            box-shadow: inset 0 8px 0 #fbd000;
-        }
-
-        #mario::before {
-            content: '';
-            position: absolute;
-            top: 10px;
-            right: -6px;
-            width: 12px;
-            height: 12px;
-            background-color: #fbd000;
-            border-radius: 50%;
-        }
-
-        .obstacle {
-            position: absolute;
-            bottom: 120px;
-            width: 30px;
-            height: 40px;
-            background-color: #00a800;
-            border: 2px solid #005000;
-        }
-
-        .coin {
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background-color: #fbd000;
-            border-radius: 50%;
-            border: 2px solid #e52521;
-            animation: bounce 0.6s infinite alternate;
-        }
-
-        @keyframes bounce {
-            from { transform: translateY(0); }
-            to { transform: translateY(-5px); }
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         #ground {
@@ -87,149 +44,33 @@
             border-top: 8px solid #00a800;
         }
 
-        #score-board {
-            position: absolute;
-            top: 15px;
-            left: 20px;
-            font-size: 20px;
-            font-weight: bold;
+        .content {
             z-index: 10;
-            text-shadow: 2px 2px 0 #000;
-        }
-
-        #game-over {
-            display: none;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 36px;
-            color: #e52521;
-            font-weight: bold;
-            text-shadow: 3px 3px 0 #000;
             text-align: center;
         }
 
-        #restart-btn {
-            margin-top: 15px;
-            padding: 10px 20px;
-            font-size: 18px;
-            background-color: #fbd000;
-            color: #000;
-            border: none;
-            cursor: pointer;
-            font-weight: bold;
-            border-radius: 5px;
+        h1 {
+            font-size: 32px;
+            text-shadow: 2px 2px 0 #000;
+            margin-bottom: 10px;
         }
 
-        #controls-hint {
-            margin-top: 15px;
-            color: #aaa;
-            font-size: 14px;
+        p {
+            font-size: 18px;
+            text-shadow: 1px 1px 0 #000;
+            color: #fbd000;
         }
     </style>
 </head>
 <body>
 
-    <div id="game-container">
-        <div id="score-board">SCORE: <span id="score">0</span></div>
-        <div id="mario"></div>
-        <div id="ground"></div>
-        <div id="game-over">
-            GAME OVER
-            <br>
-            <button id="restart-btn" onclick="restartGame()">Play Again</button>
+    <div id="main-container">
+        <div class="content">
+            <h1>Welcome to My Website</h1>
+            <p>This is a clean layout template!</p>
         </div>
+        <div id="ground"></div>
     </div>
-    <div id="controls-hint">Press <b>SPACEBAR</b> or <b>UP ARROW</b> or <b>Tap Screen</b> to Jump!</div>
 
-    <script>
-        const mario = document.getElementById('mario');
-        const gameContainer = document.getElementById('game-container');
-        const scoreElement = document.getElementById('score');
-        const gameOverElement = document.getElementById('game-over');
-
-        let isJumping = false;
-        let gravity = 0.9;
-        let score = 0;
-        let isGameOver = false;
-        let marioBottom = 120;
-
-        function control(e) {
-            if (e.code === 'Space' || e.code === 'ArrowUp') {
-                jump();
-            }
-        }
-
-        document.addEventListener('keydown', control);
-        document.addEventListener('touchstart', jump);
-
-        function jump() {
-            if (isJumping || isGameOver) return;
-            isJumping = true;
-            let count = 0;
-            let timerId = setInterval(function () {
-                // Jump up
-                if (count === 15) {
-                    clearInterval(timerId);
-                    // Fall down
-                    let downTimerId = setInterval(function () {
-                        if (count === 0) {
-                            clearInterval(downTimerId);
-                            isJumping = false;
-                        }
-                        marioBottom -= 5;
-                        count--;
-                        marioBottom = marioBottom * gravity;
-                        if (marioBottom < 120) marioBottom = 120;
-                        mario.style.bottom = marioBottom + 'px';
-                    }, 20);
-                }
-                marioBottom += 30;
-                count++;
-                marioBottom = marioBottom * gravity;
-                mario.style.bottom = marioBottom + 'px';
-            }, 20);
-        }
-
-        function generateObstacle() {
-            if (isGameOver) return;
-            let randomTime = Math.random() * 4000 + 1500;
-            let obstaclePosition = 800;
-            const obstacle = document.createElement('div');
-            obstacle.classList.add('obstacle');
-            gameContainer.appendChild(obstacle);
-            obstacle.style.left = obstaclePosition + 'px';
-
-            let timerId = setInterval(function() {
-                if (obstaclePosition > 0 && obstaclePosition < 80 && marioBottom < 160) {
-                    clearInterval(timerId);
-                    gameOver();
-                }
-                obstaclePosition -= 10;
-                obstacle.style.left = obstaclePosition + 'px';
-
-                if (obstaclePosition < -30) {
-                    clearInterval(timerId);
-                    gameContainer.removeChild(obstacle);
-                    score += 10;
-                    scoreElement.innerText = score;
-                }
-            }, 20);
-
-            if (!isGameOver) setTimeout(generateObstacle, randomTime);
-        }
-
-        function gameOver() {
-            isGameOver = true;
-            gameOverElement.style.display = 'block';
-        }
-
-        function restartGame() {
-            window.location.reload();
-        }
-
-        generateObstacle();
-    </script>
 </body>
 </html>
