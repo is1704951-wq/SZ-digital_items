@@ -1,417 +1,690 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ta">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Modern E-Commerce Theme</title>
-  <style>
-    /* Global Reset & Base Styles */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SZ Digital Items - O/L Resources Flow</title>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #f8fafc;
+            color: #1e293b;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-    body {
-      background-color: #f8f9fa;
-      color: #1e293b;
-      line-height: 1.6;
-    }
+        /* Top Bar Announcement */
+        .top-bar {
+            background: #0f2043;
+            color: #94a3b8;
+            text-align: center;
+            padding: 8px 15px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        .top-bar span {
+            color: #00b4db;
+            font-weight: 700;
+        }
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
+        /* Navigation Bar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 8%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #e2e8f0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+        }
+        .logo {
+            font-size: 2rem;
+            font-weight: 900;
+            letter-spacing: 1px;
+            color: #007991;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .logo span {
+            color: #0f2043;
+        }
 
-    /* Navigation Bar */
-    header {
-      background: linear-gradient(90deg, rgba(15,32,67,0.85) 0%, rgba(0,121,145,0.85) 100%);
-      position: absolute;
-      width: 100%;
-      top: 0;
-      left: 0;
-      z-index: 100;
-      color: #fff;
-    }
+        /* Hamburger Menu */
+        .menu-container {
+            position: relative;
+        }
+        .hamburger-btn {
+            background: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            color: #0f2043;
+            font-size: 1.2rem;
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        .hamburger-btn:hover {
+            background: #007991;
+            border-color: #007991;
+            color: #ffffff;
+            box-shadow: 0 4px 12px rgba(0, 121, 145, 0.3);
+        }
 
-    .nav-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.2rem 2rem;
-    }
+        /* Dropdown Menu Box */
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 55px;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            width: 280px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            z-index: 200;
+            animation: fadeIn 0.2s ease-out;
+        }
+        .dropdown-menu.show {
+            display: block;
+        }
 
-    .logo {
-      font-size: 1.8rem;
-      font-weight: 800;
-      letter-spacing: 1px;
-    }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-    .nav-links {
-      display: flex;
-      list-style: none;
-      gap: 1.5rem;
-      font-size: 0.85rem;
-      font-weight: 600;
-      text-transform: uppercase;
-    }
+        .dropdown-menu a, .dropdown-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 14px 18px;
+            color: #334155;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            border: none;
+            background: transparent;
+            border-bottom: 1px solid #f1f5f9;
+            cursor: pointer;
+            text-align: left;
+        }
+        .dropdown-menu a:hover, .dropdown-btn:hover {
+            background: #e0f7fa;
+            color: #007991;
+        }
 
-    .nav-links a:hover {
-      opacity: 0.8;
-    }
+        .menu-item-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
 
-    .nav-icons {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      font-weight: 600;
-    }
+        /* Main Page Wrapper */
+        #mainContent {
+            display: block;
+        }
 
-    /* Hero Section */
-    .hero {
-      position: relative;
-      min-height: 85vh;
-      background: linear-gradient(90deg, rgba(15,32,67,0.7) 0%, rgba(0,121,145,0.7) 100%), 
-                  url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
-      display: flex;
-      align-items: center;
-      color: #fff;
-      padding: 0 2rem;
-    }
+        /* Hero Section with Image Gradient Theme */
+        .hero {
+            position: relative;
+            min-height: 480px;
+            background: linear-gradient(90deg, rgba(15,32,67,0.88) 0%, rgba(0,121,145,0.88) 100%), url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            padding: 60px 8%;
+            color: #ffffff;
+        }
+        .hero-content {
+            max-width: 650px;
+        }
+        .badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+            color: #ffffff;
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .hero h1 {
+            font-size: 3.2rem;
+            font-weight: 900;
+            line-height: 1.15;
+            margin-bottom: 18px;
+        }
+        .hero p {
+            font-size: 1.1rem;
+            color: #e0f7fa;
+            margin-bottom: 30px;
+        }
 
-    .hero-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      width: 100%;
-      padding-top: 5rem;
-    }
+        /* Official Contact Section Cards */
+        .contact-section {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+        .contact-title {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #0f2043;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+        }
+        .contact-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            padding: 20px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            transition: all 0.3s ease;
+        }
+        .contact-card:hover {
+            transform: translateY(-4px);
+            border-color: #007991;
+            box-shadow: 0 8px 20px rgba(0, 121, 145, 0.15);
+        }
+        .contact-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            flex-shrink: 0;
+        }
+        .icon-wa { background: #e8f5e9; color: #25d366; }
+        .icon-gm { background: #ffebee; color: #ea4335; }
+        .icon-ig { background: #fce4ec; color: #e1306c; }
 
-    .hero h1 {
-      font-size: 3.5rem;
-      font-weight: 700;
-      line-height: 1.2;
-      margin-bottom: 1rem;
-      max-width: 600px;
-    }
+        .contact-info h4 {
+            color: #64748b;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+        .contact-info p {
+            color: #0f2043;
+            font-size: 0.95rem;
+            font-weight: 700;
+        }
 
-    .hero p {
-      font-size: 1.25rem;
-      margin-bottom: 2rem;
-      font-weight: 500;
-    }
+        /* Generic Layout Pages Style */
+        .custom-page {
+            display: none;
+            max-width: 900px;
+            margin: 40px auto 80px;
+            padding: 0 20px;
+        }
+        .page-card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 35px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+        }
+        .page-headline {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #0f2043;
+            margin-bottom: 25px;
+            border-bottom: 3px solid #007991;
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
 
-    .btn-group {
-      display: flex;
-      gap: 1rem;
-    }
+        /* Medium & Subject Selection List Styles */
+        .select-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .select-item {
+            background: #f8fafc;
+            border: 1px solid #cbd5e1;
+            padding: 16px 20px;
+            border-radius: 10px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #1e293b;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.25s ease;
+        }
+        .select-item:hover {
+            background: #007991;
+            color: #ffffff;
+            border-color: #007991;
+            transform: translateX(5px);
+        }
 
-    .btn {
-      padding: 0.8rem 1.8rem;
-      font-size: 0.85rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      border-radius: 2px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
+        /* Years List Style (2000 - 2026) */
+        .years-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-height: 500px;
+            overflow-y: auto;
+            padding-right: 5px;
+        }
+        .year-row-item {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 12px 20px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #334155;
+        }
+        .click-here-btn {
+            background: #007991;
+            color: #ffffff;
+            padding: 6px 16px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .click-here-btn:hover {
+            background: #0f2043;
+        }
 
-    .btn-primary {
-      background-color: #ffffff;
-      color: #0f2043;
-      border: 2px solid #ffffff;
-    }
+        /* Buttons */
+        .nav-back-btn {
+            background: #f1f5f9;
+            color: #0f2043;
+            border: 1px solid #cbd5e1;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .nav-back-btn:hover {
+            background: #e2e8f0;
+        }
 
-    .btn-primary:hover {
-      background-color: transparent;
-      color: #ffffff;
-    }
+        /* Coming Soon Page View */
+        #comingSoonPage {
+            display: none;
+            min-height: 60vh;
+            text-align: center;
+            padding: 80px 20px;
+            background: #ffffff;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        #comingSoonPage h2 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 15px;
+            color: #0f2043;
+        }
+        #comingSoonPage p {
+            font-size: 1.1rem;
+            color: #64748b;
+            margin-bottom: 30px;
+        }
 
-    .btn-outline {
-      background-color: transparent;
-      color: #ffffff;
-      border: 2px solid #ffffff;
-    }
-
-    .btn-outline:hover {
-      background-color: #ffffff;
-      color: #0f2043;
-    }
-
-    /* Brand Logos Bar */
-    .brands {
-      background-color: #ffffff;
-      padding: 2.5rem 2rem;
-      border-bottom: 1px solid #e2e8f0;
-    }
-
-    .brands-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      opacity: 0.6;
-      filter: grayscale(100%);
-      font-weight: 700;
-      font-size: 1.2rem;
-    }
-
-    /* Category Cards Section */
-    .categories {
-      padding: 4rem 2rem;
-      background-color: #ffffff;
-    }
-
-    .categories-grid {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .category-card {
-      position: relative;
-      height: 420px;
-      border-radius: 4px;
-      overflow: hidden;
-      display: flex;
-      align-items: flex-end;
-      padding: 2rem;
-      color: #ffffff;
-      background-size: cover;
-      background-position: center;
-    }
-
-    .category-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: linear-gradient(0deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.2) 60%);
-    }
-
-    .category-content {
-      position: relative;
-      z-index: 1;
-    }
-
-    .category-content h3 {
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .category-content p {
-      font-size: 0.85rem;
-      opacity: 0.9;
-      margin-bottom: 1.2rem;
-    }
-
-    /* Featured Products Section */
-    .products {
-      padding: 5rem 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-
-    .section-title h2 {
-      font-size: 2.2rem;
-      color: #0f172a;
-      position: relative;
-      display: inline-block;
-      padding-bottom: 0.75rem;
-    }
-
-    .section-title h2::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 50px;
-      height: 3px;
-      background-color: #007991;
-    }
-
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 2rem;
-    }
-
-    .product-card {
-      background: #ffffff;
-      border-radius: 6px;
-      overflow: hidden;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      position: relative;
-      border: 1px solid #f1f5f9;
-    }
-
-    .product-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-    }
-
-    .badge-sale {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      background-color: #007991;
-      color: #fff;
-      font-size: 0.7rem;
-      font-weight: 700;
-      padding: 0.2rem 0.5rem;
-      border-radius: 50%;
-      z-index: 2;
-    }
-
-    .product-image {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-      background-color: #f1f5f9;
-    }
-
-    .product-info {
-      padding: 1rem;
-    }
-
-    .product-title {
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: #334155;
-      margin-bottom: 0.3rem;
-    }
-
-    .product-price {
-      font-size: 0.9rem;
-      font-weight: 700;
-      color: #0f172a;
-    }
-  </style>
+        /* Footer */
+        footer {
+            background: #0f2043;
+            color: #ffffff;
+            padding: 40px 8% 25px;
+            border-top: 1px solid #1e293b;
+        }
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .copyright {
+            text-align: center;
+            color: #64748b;
+            font-size: 0.85rem;
+            margin-top: 30px;
+            border-top: 1px solid #1e293b;
+            padding-top: 15px;
+        }
+    </style>
 </head>
 <body>
 
-  <!-- Navigation Bar -->
-  <header>
-    <div class="nav-container">
-      <div class="logo">DNK</div>
-      <ul class="nav-links">
-        <li><a href="#">Everything</a></li>
-        <li><a href="#">Women</a></li>
-        <li><a href="#">Men</a></li>
-        <li><a href="#">Accessories</a></li>
-      </ul>
-      <div class="nav-icons">
-        <a href="#">About</a>
-        <a href="#">Contact Us</a>
-        <span>$0.00</span>
-      </div>
+    <!-- Top Announcement Bar -->
+    <div class="top-bar">
+        🚀 Launching Soon: <span>Get Exclusive Offers On Digital Assets!</span>
     </div>
-  </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Raining Offers For Hot Summer!</h1>
-      <p>25% Off On All Products</p>
-      <div class="btn-group">
-        <button class="btn btn-primary">Shop Now</button>
-        <button class="btn btn-outline">Find More</button>
-      </div>
-    </div>
-  </section>
+    <!-- Header / Navbar -->
+    <nav>
+        <div class="logo" onclick="showMainHome()">
+            <i class="fa-solid fa-layer-group"></i> SZ <span>DIGITAL</span>
+        </div>
+        
+        <!-- Professional Hamburger Menu -->
+        <div class="menu-container">
+            <button class="hamburger-btn" id="menuToggle" aria-label="Menu">
+                <i class="fa-solid fa-bars" id="menuIcon"></i>
+            </button>
+            
+            <div class="dropdown-menu" id="dropdownMenu">
+                <a onclick="openComingSoonDirect('Canva Templates')">
+                    <span class="menu-item-title"><i class="fa-solid fa-palette" style="color: #00b4db;"></i> Canva Templates</span>
+                </a>
+                
+                <a onclick="openComingSoonDirect('CapCut Templates')">
+                    <span class="menu-item-title"><i class="fa-solid fa-video" style="color: #f43f5e;"></i> CapCut Templates</span>
+                </a>
+                
+                <a onclick="openComingSoonDirect('Ebooks')">
+                    <span class="menu-item-title"><i class="fa-solid fa-book-open" style="color: #fbbf24;"></i> Ebooks</span>
+                </a>
 
-  <!-- Partner Logos -->
-  <div class="brands">
-    <div class="brands-container">
-      <span>logoipsum</span>
-      <span>logoipsum</span>
-      <span>LOGO</span>
-      <span>logoipsum</span>
-      <span>logoipsum</span>
-    </div>
-  </div>
+                <!-- O/L Resources Click -> Go to Medium Selection Page -->
+                <a onclick="openOlMediumPage()">
+                    <span class="menu-item-title"><i class="fa-solid fa-graduation-cap" style="color: #007991;"></i> O/L Education Resources</span>
+                </a>
 
-  <!-- Category Feature Cards -->
-  <section class="categories">
-    <div class="categories-grid">
-      <div class="category-card" style="background-image: url('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80');">
-        <div class="category-content">
-          <h3>20% Off On Tank Tops</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          <button class="btn btn-primary">Shop Now</button>
+                <a onclick="openComingSoonDirect('A/L Education Resources')">
+                    <span class="menu-item-title"><i class="fa-solid fa-user-graduate" style="color: #8b5cf6;"></i> A/L Education Resources</span>
+                </a>
+            </div>
         </div>
-      </div>
-      <div class="category-card" style="background-image: url('https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=800&q=80');">
-        <div class="category-content">
-          <h3>Latest Eyewear For You</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          <button class="btn btn-primary">Shop Now</button>
-        </div>
-      </div>
-      <div class="category-card" style="background-image: url('https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=800&q=80');">
-        <div class="category-content">
-          <h3>Let's Lorem Suit Up!</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          <button class="btn btn-primary">Check Out</button>
-        </div>
-      </div>
-    </div>
-  </section>
+    </nav>
 
-  <!-- Featured Products -->
-  <section class="products">
-    <div class="section-title">
-      <h2>Featured Products</h2>
+    <!-- 1. Main Home Content -->
+    <div id="mainContent">
+        <section class="hero">
+            <div class="hero-content">
+                <div class="badge">SZ Digital Store</div>
+                <h1>Welcome to SZ Digital Items</h1>
+                <p>Educational resources, digital templates, ebooks, and creative assets designed for your success.</p>
+            </div>
+        </section>
+
+        <!-- Official Contact Section -->
+        <section class="contact-section">
+            <h3 class="contact-title">Get In Touch With Us</h3>
+            <div class="contact-grid">
+                <!-- WhatsApp -->
+                <a href="https://wa.me/94757663533" target="_blank" class="contact-card">
+                    <div class="contact-icon icon-wa">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </div>
+                    <div class="contact-info">
+                        <h4>WhatsApp</h4>
+                        <p>+94 757663533</p>
+                    </div>
+                </a>
+                <!-- Gmail -->
+                <a href="mailto:mhmsakeeb0@gmail.com" class="contact-card">
+                    <div class="contact-icon icon-gm">
+                        <i class="fa-solid fa-envelope"></i>
+                    </div>
+                    <div class="contact-info">
+                        <h4>Email Us</h4>
+                        <p>mhmsakeeb0@gmail.com</p>
+                    </div>
+                </a>
+                <!-- Instagram -->
+                <a href="https://instagram.com/sz_digital_items" target="_blank" class="contact-card">
+                    <div class="contact-icon icon-ig">
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+                    <div class="contact-info">
+                        <h4>Instagram</h4>
+                        <p>@sz_digital_items</p>
+                    </div>
+                </a>
+            </div>
+        </section>
     </div>
-    <div class="products-grid">
-      <div class="product-card">
-        <span class="badge-sale">Sale!</span>
-        <img class="product-image" src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=500&q=80" alt="Product">
-        <div class="product-info">
-          <div class="product-title">DNK Yellow Shoes</div>
-          <div class="product-price">$120.00</div>
+
+    <!-- 2. O/L Medium Selection Page -->
+    <div id="mediumPage" class="custom-page">
+        <div class="page-card">
+            <div class="page-headline">
+                <span>Medium Options</span>
+                <button class="nav-back-btn" onclick="showMainHome()"><i class="fa-solid fa-arrow-left"></i> Home</button>
+            </div>
+            <ul class="select-list">
+                <li class="select-item" onclick="openSubjectsPage('Tamil Medium')">
+                    <span>1. Tamil</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </li>
+                <li class="select-item" onclick="openComingSoonDirect('O/L Resources - English Medium')">
+                    <span>2. English</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </li>
+                <li class="select-item" onclick="openComingSoonDirect('O/L Resources - Sinhala Medium')">
+                    <span>3. Sinhala</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </li>
+            </ul>
         </div>
-      </div>
-      <div class="product-card">
-        <img class="product-image" src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=500&q=80" alt="Product">
-        <div class="product-info">
-          <div class="product-title">DNK Blue Shoes</div>
-          <div class="product-price">$80.00</div>
-        </div>
-      </div>
-      <div class="product-card">
-        <img class="product-image" src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=500&q=80" alt="Product">
-        <div class="product-info">
-          <div class="product-title">Dark Blue Jeans</div>
-          <div class="product-price">$95.00</div>
-        </div>
-      </div>
-      <div class="product-card">
-        <img class="product-image" src="https://images.unsplash.com/photo-1582552938357-32b906df40cb?auto=format&fit=crop&w=500&q=80" alt="Product">
-        <div class="product-info">
-          <div class="product-title">Blue Denim Jeans</div>
-          <div class="product-price">$110.00</div>
-        </div>
-      </div>
-      <div class="product-card">
-        <img class="product-image" src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=500&q=80" alt="Product">
-        <div class="product-info">
-          <div class="product-title">Basic Gray Jeans</div>
-          <div class="product-price">$85.00</div>
-        </div>
-      </div>
     </div>
-  </section>
+
+    <!-- 3. Tamil Medium Subjects Page -->
+    <div id="subjectsPage" class="custom-page">
+        <div class="page-card">
+            <div class="page-headline">
+                <span>Subjects</span>
+                <button class="nav-back-btn" onclick="openOlMediumPage()"><i class="fa-solid fa-arrow-left"></i> Back</button>
+            </div>
+            <ul class="select-list">
+                <li class="select-item" onclick="openYearsPage('Tamil Language')"><span>1. Tamil Language</span> <i class="fa-solid fa-chevron-right"></i></li>
+                <li class="select-item" onclick="openYearsPage('English Language')"><span>2. English Language</span> <i class="fa-solid fa-chevron-right"></i></li>
+                <li class="select-item" onclick="openYearsPage('Science')"><span>3. Science</span> <i class="fa-solid fa-chevron-right"></i></li>
+                <li class="select-item" onclick="openYearsPage('Mathematics')"><span>4. Mathematics</span> <i class="fa-solid fa-chevron-right"></i></li>
+                <li class="select-item" onclick="openYearsPage('History')"><span>5. History</span> <i class="fa-solid fa-chevron-right"></i></li>
+                <li class="select-item" onclick="openYearsPage('Islam')"><span>6. Islam</span> <i class="fa-solid fa-chevron-right"></i></li>
+                <li class="select-item" onclick="openYearsPage('Information Technology (ICT)')"><span>7. Information Technology (ICT)</span> <i class="fa-solid fa-chevron-right"></i></li>
+                <li class="select-item" onclick="openYearsPage('Health Science')"><span>8. Health Science</span> <i class="fa-solid fa-chevron-right"></i></li>
+                <li class="select-item" onclick="openYearsPage('Agriculture')"><span>9. Agriculture</span> <i class="fa-solid fa-chevron-right"></i></li>
+                <li class="select-item" onclick="openYearsPage('Arts / Tamil Literature')"><span>10. Arts / Tamil Literature</span> <i class="fa-solid fa-chevron-right"></i></li>
+                <li class="select-item" onclick="openYearsPage('Geography')"><span>11. Geography</span> <i class="fa-solid fa-chevron-right"></i></li>
+                <li class="select-item" onclick="openYearsPage('Commerce')"><span>12. Commerce</span> <i class="fa-solid fa-chevron-right"></i></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 4. Years List Page (2000 to 2026) -->
+    <div id="yearsPage" class="custom-page">
+        <div class="page-card">
+            <div class="page-headline">
+                <span id="selectedSubjectTitle">Past Papers</span>
+                <button class="nav-back-btn" onclick="openSubjectsPage()"><i class="fa-solid fa-arrow-left"></i> Back</button>
+            </div>
+            <div class="years-container" id="yearsListContainer">
+                <!-- JavaScript Dynamic 2000 to 2026 List Inserted Here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 5. Coming Soon Page -->
+    <div id="comingSoonPage">
+        <h2 id="comingSoonTitle">Coming Soon</h2>
+        <p>🚀 We are updating the past paper files for this year. Stay tuned, coming very soon!</p>
+        <button class="nav-back-btn" style="padding: 12px 25px; font-size: 1rem;" onclick="showMainHome()"><i class="fa-solid fa-house"></i> Back to Home</button>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div>
+                <h3 style="color: #00b4db;">SZ DIGITAL ITEMS</h3>
+                <p style="color: #94a3b8; font-size: 0.9rem;">Your Educational & Digital Resource Partner</p>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2026 SZ Digital Items. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const menuIcon = document.getElementById('menuIcon');
+        const dropdownMenu = document.getElementById('dropdownMenu');
+
+        const mainContent = document.getElementById('mainContent');
+        const mediumPage = document.getElementById('mediumPage');
+        const subjectsPage = document.getElementById('subjectsPage');
+        const yearsPage = document.getElementById('yearsPage');
+        const comingSoonPage = document.getElementById('comingSoonPage');
+        
+        const selectedSubjectTitle = document.getElementById('selectedSubjectTitle');
+        const yearsListContainer = document.getElementById('yearsListContainer');
+        const comingSoonTitle = document.getElementById('comingSoonTitle');
+
+        let currentSubject = "";
+
+        // Navigation Helper: Hide all views
+        function hideAllPages() {
+            mainContent.style.display = 'none';
+            mediumPage.style.display = 'none';
+            subjectsPage.style.display = 'none';
+            yearsPage.style.display = 'none';
+            comingSoonPage.style.display = 'none';
+            
+            // Close menu
+            dropdownMenu.classList.remove('show');
+            menuIcon.classList.remove('fa-xmark');
+            menuIcon.classList.add('fa-bars');
+        }
+
+        // Show Main Home Page
+        function showMainHome() {
+            hideAllPages();
+            mainContent.style.display = 'block';
+            window.scrollTo(0, 0);
+        }
+
+        // Step 1: Open O/L Medium Options Page
+        function openOlMediumPage() {
+            hideAllPages();
+            mediumPage.style.display = 'block';
+            window.scrollTo(0, 0);
+        }
+
+        // Step 2: Open Subjects List Page
+        function openSubjectsPage(mediumName) {
+            hideAllPages();
+            subjectsPage.style.display = 'block';
+            window.scrollTo(0, 0);
+        }
+
+        // Step 3: Open 2000 - 2026 Years Page for selected Subject
+        function openYearsPage(subjectName) {
+            if (subjectName) currentSubject = subjectName;
+            
+            hideAllPages();
+            selectedSubjectTitle.innerText = "O/L " + currentSubject + " (2000 - 2026)";
+            
+            // Render 2000 to 2026 Years List
+            let html = '';
+            for (let year = 2000; year <= 2026; year++) {
+                html += `
+                    <div class="year-row-item">
+                        <span>${year} - ${currentSubject} Past Paper</span>
+                        <span class="click-here-btn" onclick="openComingSoonYear('${year}', '${currentSubject}')">Click Here</span>
+                    </div>
+                `;
+            }
+            yearsListContainer.innerHTML = html;
+
+            yearsPage.style.display = 'block';
+            window.scrollTo(0, 0);
+        }
+
+        // Step 4: Show Coming Soon Page for specific Year
+        function openComingSoonYear(year, subject) {
+            hideAllPages();
+            comingSoonTitle.innerText = `${subject} - ${year} (Coming Soon)`;
+            comingSoonPage.style.display = 'flex';
+            window.scrollTo(0, 0);
+        }
+
+        // Direct Coming Soon Page
+        function openComingSoonDirect(title) {
+            hideAllPages();
+            comingSoonTitle.innerText = title + " - Coming Soon";
+            comingSoonPage.style.display = 'flex';
+            window.scrollTo(0, 0);
+        }
+
+        // Hamburger Menu Toggle
+        menuToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            dropdownMenu.classList.toggle('show');
+            if (dropdownMenu.classList.contains('show')) {
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-xmark');
+            } else {
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+            }
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!dropdownMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+                dropdownMenu.classList.remove('show');
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+            }
+        });
+    </script>
 
 </body>
 </html>
