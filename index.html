@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SZ Digital Items - Premium Digital Assets & Resources</title>
-    <!-- FontAwesome for Professional Icons -->
+    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -14,10 +14,24 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         body {
-            background-color: #0b0f19;
-            color: #f8fafc;
+            background-color: #f8fafc;
+            color: #1e293b;
             line-height: 1.6;
             overflow-x: hidden;
+        }
+
+        /* Top Bar Announcement */
+        .top-bar {
+            background: #0f172a;
+            color: #94a3b8;
+            text-align: center;
+            padding: 8px 15px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        .top-bar span {
+            color: #38bdf8;
+            font-weight: 700;
         }
 
         /* Navigation Bar */
@@ -25,33 +39,37 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 8%;
-            background: rgba(11, 15, 25, 0.85);
+            padding: 18px 8%;
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            border-bottom: 1px solid #e2e8f0;
             position: sticky;
             top: 0;
             z-index: 100;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
         }
         .logo {
-            font-size: 1.9rem;
+            font-size: 2rem;
             font-weight: 900;
-            letter-spacing: 1.5px;
-            background: linear-gradient(135deg, #38bdf8 0%, #f43f5e 50%, #fbbf24 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+            letter-spacing: 1px;
+            color: #0284c7;
             cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .logo span {
+            color: #0f172a;
         }
 
-        /* Professional Hamburger Menu Button */
+        /* Hamburger Menu */
         .menu-container {
             position: relative;
         }
         .hamburger-btn {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            color: #f8fafc;
+            background: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            color: #0f172a;
             font-size: 1.2rem;
             width: 44px;
             height: 44px;
@@ -63,10 +81,10 @@
             transition: all 0.3s ease;
         }
         .hamburger-btn:hover {
-            background: rgba(56, 189, 248, 0.2);
-            border-color: #38bdf8;
-            color: #38bdf8;
-            box-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
+            background: #0284c7;
+            border-color: #0284c7;
+            color: #ffffff;
+            box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
         }
 
         /* Dropdown Menu Box */
@@ -75,11 +93,11 @@
             position: absolute;
             right: 0;
             top: 55px;
-            background: #131927;
-            border: 1px solid rgba(255, 255, 255, 0.12);
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
             border-radius: 14px;
-            width: 210px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+            width: 230px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
             overflow: hidden;
             z-index: 200;
             animation: fadeIn 0.2s ease-out;
@@ -98,160 +116,244 @@
             align-items: center;
             gap: 12px;
             padding: 14px 18px;
-            color: #cbd5e1;
+            color: #334155;
             text-decoration: none;
             font-size: 0.95rem;
             font-weight: 600;
             transition: all 0.2s ease;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid #f1f5f9;
             cursor: pointer;
         }
         .dropdown-menu a:last-child {
             border-bottom: none;
         }
         .dropdown-menu a:hover {
-            background: rgba(56, 189, 248, 0.15);
-            color: #38bdf8;
+            background: #f0f9ff;
+            color: #0284c7;
             padding-left: 22px;
         }
 
-        /* Main Page Content Wrapper */
+        /* Main Page Wrapper */
         #mainContent {
             display: block;
         }
 
-        /* Hero Section */
+        /* DNK Style Hero Section */
         .hero {
-            text-align: center;
-            padding: 100px 20px 60px;
-            background: radial-gradient(circle at 50% 30%, rgba(56, 189, 248, 0.15), rgba(244, 63, 94, 0.08), #0b0f19 70%);
             position: relative;
+            min-height: 520px;
+            background: linear-gradient(135deg, rgba(2, 132, 199, 0.88), rgba(15, 23, 42, 0.92)), url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            padding: 60px 8%;
+            color: #ffffff;
         }
-        
-        /* Colorful Glowing Badge */
+        .hero-content {
+            max-width: 650px;
+        }
         .badge {
             display: inline-block;
-            background: linear-gradient(90deg, rgba(56, 189, 248, 0.15), rgba(244, 63, 94, 0.15));
-            color: #f43f5e;
-            padding: 8px 20px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+            color: #ffffff;
+            padding: 6px 16px;
             border-radius: 30px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            margin-bottom: 25px;
-            border: 1px solid rgba(244, 63, 94, 0.3);
-            box-shadow: 0 0 15px rgba(244, 63, 94, 0.2);
-        }
-
-        /* Animated Colorful Gradient Headline */
-        .hero h1 {
-            font-size: 3.2rem;
-            font-weight: 900;
-            line-height: 1.2;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 1px;
             margin-bottom: 20px;
-            background: linear-gradient(135deg, #38bdf8 0%, #a855f7 35%, #f43f5e 70%, #fbbf24 100%);
-            background-size: 300% 300%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: gradientShift 6s ease infinite;
-            filter: drop-shadow(0 4px 15px rgba(168, 85, 247, 0.3));
+            text-transform: uppercase;
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
-
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.15;
+            margin-bottom: 18px;
         }
-
         .hero p {
-            font-size: 1.25rem;
-            color: #94a3b8;
-            max-width: 680px;
-            margin: 0 auto 35px;
+            font-size: 1.2rem;
+            color: #e0f2fe;
+            margin-bottom: 30px;
+        }
+        .hero-btns {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .btn-primary {
+            background: #ffffff;
+            color: #0284c7;
+            padding: 14px 32px;
+            border-radius: 6px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+        .btn-primary:hover {
+            background: #0f172a;
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+        .btn-secondary {
+            border: 2px solid #ffffff;
+            color: #ffffff;
+            padding: 12px 30px;
+            border-radius: 6px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
         }
 
-        /* Features Section */
+        /* Category Banners Section (Middle Image Grid Style) */
+        .category-section {
+            max-width: 1200px;
+            margin: -50px auto 60px;
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+        }
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+        .category-card {
+            position: relative;
+            height: 260px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .category-card:hover {
+            transform: translateY(-5px);
+        }
+        .category-card.bg-canva {
+            background: linear-gradient(to top, rgba(15, 23, 42, 0.85), rgba(2, 132, 199, 0.4)), url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80') center/cover;
+        }
+        .category-card.bg-capcut {
+            background: linear-gradient(to top, rgba(15, 23, 42, 0.85), rgba(244, 63, 94, 0.4)), url('https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=600&q=80') center/cover;
+        }
+        .category-card.bg-ebooks {
+            background: linear-gradient(to top, rgba(15, 23, 42, 0.85), rgba(251, 191, 36, 0.4)), url('https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=600&q=80') center/cover;
+        }
+        .card-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 25px;
+            color: #ffffff;
+        }
+        .card-overlay h3 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 6px;
+        }
+        .card-overlay p {
+            font-size: 0.9rem;
+            color: #cbd5e1;
+            margin-bottom: 15px;
+        }
+        .card-btn {
+            display: inline-block;
+            background: #ffffff;
+            color: #0f172a;
+            padding: 8px 18px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        /* Featured Products Section */
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 40px 20px 80px;
         }
         .section-title {
             text-align: center;
-            font-size: 2rem;
+            font-size: 2.2rem;
             font-weight: 800;
-            margin-bottom: 40px;
-            background: linear-gradient(to right, #ffffff, #94a3b8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: #0f172a;
+            margin-bottom: 10px;
+        }
+        .section-subtitle {
+            text-align: center;
+            color: #64748b;
+            margin-bottom: 50px;
+            font-size: 1.05rem;
         }
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-bottom: 50px;
+            gap: 30px;
         }
         .feature-card {
-            background: rgba(30, 41, 59, 0.6);
-            padding: 35px 25px;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: #ffffff;
+            padding: 40px 30px;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
             text-align: center;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-        }
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, #38bdf8, #a855f7, #f43f5e);
-            opacity: 0;
-            transition: opacity 0.3s ease;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
         }
         .feature-card:hover {
             transform: translateY(-8px);
-            border-color: rgba(168, 85, 247, 0.4);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(168, 85, 247, 0.15);
+            border-color: #0284c7;
+            box-shadow: 0 15px 30px rgba(2, 132, 199, 0.1);
         }
-        .feature-card:hover::before {
-            opacity: 1;
+        .feature-icon {
+            width: 65px;
+            height: 65px;
+            background: #f0f9ff;
+            color: #0284c7;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            margin: 0 auto 20px;
         }
         .feature-card h3 {
-            color: #38bdf8;
-            font-size: 1.35rem;
+            color: #0f172a;
+            font-size: 1.3rem;
             margin-bottom: 12px;
             font-weight: 700;
         }
         .feature-card p {
-            color: #94a3b8;
-            font-size: 0.98rem;
+            color: #64748b;
+            font-size: 0.95rem;
         }
 
-        /* Separate Clean Coming Soon Page View */
+        /* Coming Soon Page View */
         #comingSoonPage {
             display: none;
-            min-height: 70vh;
+            min-height: 65vh;
             text-align: center;
-            padding: 100px 20px;
-            background: radial-gradient(circle at 50% 40%, rgba(168, 85, 247, 0.15), #0b0f19 80%);
+            padding: 80px 20px;
+            background: #ffffff;
             align-items: center;
             justify-content: center;
             flex-direction: column;
         }
         #comingSoonPage h2 {
-            font-size: 3rem;
+            font-size: 2.8rem;
             font-weight: 900;
             margin-bottom: 15px;
-            background: linear-gradient(135deg, #38bdf8, #a855f7, #f43f5e);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: #0f172a;
         }
         #comingSoonPage p {
-            font-size: 1.2rem;
-            color: #94a3b8;
+            font-size: 1.15rem;
+            color: #64748b;
             margin-bottom: 30px;
             max-width: 500px;
         }
@@ -259,27 +361,26 @@
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            padding: 12px 28px;
-            background: linear-gradient(135deg, #38bdf8, #a855f7);
+            padding: 12px 30px;
+            background: #0284c7;
             color: #ffffff;
             font-weight: 700;
-            border-radius: 30px;
+            border-radius: 6px;
             text-decoration: none;
             border: none;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
         }
         .back-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 0 30px rgba(168, 85, 247, 0.5);
+            background: #0f172a;
         }
 
-        /* Compact Professional Footer Section */
+        /* Footer Section */
         footer {
-            background: #060911;
-            padding: 40px 8% 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            background: #0f172a;
+            color: #ffffff;
+            padding: 50px 8% 30px;
+            border-top: 1px solid #1e293b;
         }
         .footer-container {
             display: flex;
@@ -291,19 +392,16 @@
             margin: 0 auto;
         }
         .footer-brand h2 {
-            font-size: 1.4rem;
+            font-size: 1.6rem;
             font-weight: 800;
-            background: linear-gradient(135deg, #38bdf8, #f43f5e);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: #38bdf8;
         }
         .footer-brand p {
-            color: #64748b;
-            font-size: 0.85rem;
+            color: #94a3b8;
+            font-size: 0.9rem;
             margin-top: 4px;
         }
 
-        /* Colorful Compact Social/Contact Links */
         .footer-contacts {
             display: flex;
             align-items: center;
@@ -314,43 +412,35 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            padding: 8px 16px;
+            padding: 10px 20px;
             border-radius: 30px;
             text-decoration: none;
-            font-size: 0.85rem;
+            font-size: 0.88rem;
             font-weight: 600;
             color: #ffffff;
             transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            background: rgba(255, 255, 255, 0.03);
+            background: #1e293b;
+            border: 1px solid #334155;
         }
-
-        /* Individual Colorful Hover Effects */
         .contact-btn.whatsapp:hover {
             background: #25D366;
             border-color: #25D366;
-            box-shadow: 0 0 15px rgba(37, 211, 102, 0.4);
         }
         .contact-btn.instagram:hover {
             background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
             border-color: #dc2743;
-            box-shadow: 0 0 15px rgba(220, 39, 67, 0.4);
         }
         .contact-btn.gmail:hover {
             background: #EA4335;
             border-color: #EA4335;
-            box-shadow: 0 0 15px rgba(234, 67, 53, 0.4);
-        }
-        .contact-btn i {
-            font-size: 1.1rem;
         }
 
         .copyright {
             text-align: center;
-            color: #475569;
-            font-size: 0.8rem;
-            margin-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.04);
+            color: #64748b;
+            font-size: 0.85rem;
+            margin-top: 40px;
+            border-top: 1px solid #1e293b;
             padding-top: 20px;
         }
 
@@ -359,11 +449,11 @@
             .hero h1 {
                 font-size: 2.3rem;
             }
-            .hero p {
-                font-size: 1.05rem;
+            .hero {
+                padding: 50px 20px;
             }
-            #comingSoonPage h2 {
-                font-size: 2.2rem;
+            .category-section {
+                margin-top: 30px;
             }
             .footer-container {
                 flex-direction: column;
@@ -377,17 +467,23 @@
 </head>
 <body>
 
+    <!-- Top Announcement Bar -->
+    <div class="top-bar">
+        🚀 Launching Soon: <span>Get Exclusive Offers On Digital Assets!</span>
+    </div>
+
     <!-- Header / Navbar -->
     <nav>
-        <div class="logo" onclick="showHomePage()">SZ DIGITAL</div>
+        <div class="logo" onclick="showHomePage()">
+            <i class="fa-solid fa-layer-group"></i> SZ <span>DIGITAL</span>
+        </div>
         
-        <!-- Professional Hamburger Menu Icon (3 Lines) -->
+        <!-- Professional Hamburger Menu -->
         <div class="menu-container">
             <button class="hamburger-btn" id="menuToggle" aria-label="Menu">
                 <i class="fa-solid fa-bars" id="menuIcon"></i>
             </button>
             
-            <!-- Dropdown Options -->
             <div class="dropdown-menu" id="dropdownMenu">
                 <a onclick="openComingSoon('Canva Templates')"><i class="fa-solid fa-palette" style="color: #00c4cc;"></i> Canva Templates</a>
                 <a onclick="openComingSoon('CapCut Templates')"><i class="fa-solid fa-video" style="color: #f43f5e;"></i> CapCut Templates</a>
@@ -398,45 +494,83 @@
 
     <!-- Main Home Page Content -->
     <div id="mainContent">
-        <!-- Hero Banner -->
+        <!-- DNK Styled Blue Hero Banner -->
         <section class="hero">
-            <div class="badge">🚀 Coming Soon - Premium Store</div>
-            <h1>Elevate Your Digital Experience</h1>
-            <p>Welcome to <b>SZ Digital Items</b>. We offer high-quality digital assets, templates, and creative tools to boost your productivity and online presence.</p>
+            <div class="hero-content">
+                <div class="badge">SZ Premium Digital Store</div>
+                <h1>Elevate Your Digital Experience!</h1>
+                <p>High-quality digital assets, templates, and creative tools tailored for content creators and modern entrepreneurs.</p>
+                <div class="hero-btns">
+                    <a href="#categories" class="btn-primary">EXPLORE NOW</a>
+                    <a onclick="openComingSoon('Digital Store')" class="btn-secondary">LEARN MORE</a>
+                </div>
+            </div>
         </section>
 
-        <!-- Features Section -->
+        <!-- Image Banner Grid (DNK Layout) -->
+        <section class="category-section" id="categories">
+            <div class="category-grid">
+                <div class="category-card bg-canva" onclick="openComingSoon('Canva Templates')">
+                    <div class="card-overlay">
+                        <h3>Canva Templates</h3>
+                        <p>Professional social graphics & designs</p>
+                        <span class="card-btn">BROWSE NOW</span>
+                    </div>
+                </div>
+
+                <div class="category-card bg-capcut" onclick="openComingSoon('CapCut Templates')">
+                    <div class="card-overlay">
+                        <h3>CapCut Templates</h3>
+                        <p>Trending short-form video assets</p>
+                        <span class="card-btn">EXPLORE MORE</span>
+                    </div>
+                </div>
+
+                <div class="category-card bg-ebooks" onclick="openComingSoon('Ebooks')">
+                    <div class="card-overlay">
+                        <h3>Digital Ebooks</h3>
+                        <p>Insightful guides & creative resources</p>
+                        <span class="card-btn">VIEW ALL</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features / Why Choose Us Section -->
         <div class="container">
             <h2 class="section-title">Why Choose SZ Digital Items?</h2>
+            <p class="section-subtitle">We deliver premium resources designed to boost your efficiency</p>
             
             <div class="features-grid">
                 <div class="feature-card">
-                    <h3>⚡ Instant Access</h3>
-                    <p>Get immediate access to all your digital files and templates right after your purchase.</p>
+                    <div class="feature-icon"><i class="fa-solid fa-bolt"></i></div>
+                    <h3>Instant Download</h3>
+                    <p>Access all your purchased files and templates immediately after checkout.</p>
                 </div>
 
                 <div class="feature-card">
-                    <h3>✨ Premium Quality</h3>
-                    <p>Handcrafted and professionally designed digital products to meet all your creative needs.</p>
+                    <div class="feature-icon"><i class="fa-solid fa-crown"></i></div>
+                    <h3>Premium Quality</h3>
+                    <p>Expertly designed digital products built to level up your content.</p>
                 </div>
 
                 <div class="feature-card">
-                    <h3>🔒 100% Secure</h3>
-                    <p>Safe and trusted digital downloads for content creators, designers, and entrepreneurs.</p>
+                    <div class="feature-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h3>100% Secure</h3>
+                    <p>Safe and verified digital downloads for creators and businesses.</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Separate Clean Coming Soon Page -->
+    <!-- Separate Coming Soon Page -->
     <div id="comingSoonPage">
-        <div class="badge" id="categoryBadge">Premium Asset</div>
         <h2 id="categoryTitle">Canva Templates</h2>
         <p>🚀 We are working hard to prepare top-quality resources for this category. Stay tuned, coming very soon!</p>
         <button class="back-btn" onclick="showHomePage()"><i class="fa-solid fa-arrow-left"></i> Back to Home</button>
     </div>
 
-    <!-- Compact Professional Footer with Icons -->
+    <!-- Footer -->
     <footer>
         <div class="footer-container">
             <div class="footer-brand">
@@ -444,7 +578,6 @@
                 <p>Your Trustworthy Digital Resource Partner</p>
             </div>
 
-            <!-- Colorful Professional Badges -->
             <div class="footer-contacts">
                 <a href="https://wa.me/94757663533" target="_blank" class="contact-btn whatsapp">
                     <i class="fa-brands fa-whatsapp"></i> WhatsApp
@@ -463,7 +596,7 @@
         </div>
     </footer>
 
-    <!-- JavaScript for Navigation & Menu Toggle -->
+    <!-- JavaScript -->
     <script>
         const menuToggle = document.getElementById('menuToggle');
         const menuIcon = document.getElementById('menuIcon');
@@ -472,12 +605,10 @@
         const comingSoonPage = document.getElementById('comingSoonPage');
         const categoryTitle = document.getElementById('categoryTitle');
 
-        // Toggle Menu Icon & Dropdown View
         menuToggle.addEventListener('click', (e) => {
             e.stopPropagation();
             dropdownMenu.classList.toggle('show');
             
-            // Toggle Icon between Bars and Cross (X)
             if (dropdownMenu.classList.contains('show')) {
                 menuIcon.classList.remove('fa-bars');
                 menuIcon.classList.add('fa-xmark');
@@ -487,7 +618,6 @@
             }
         });
 
-        // Close Menu when clicking outside
         document.addEventListener('click', (e) => {
             if (!dropdownMenu.contains(e.target) && !menuToggle.contains(e.target)) {
                 dropdownMenu.classList.remove('show');
@@ -496,7 +626,6 @@
             }
         });
 
-        // Function to open Coming Soon page for selected category
         function openComingSoon(categoryName) {
             dropdownMenu.classList.remove('show');
             menuIcon.classList.remove('fa-xmark');
@@ -508,7 +637,6 @@
             window.scrollTo(0, 0);
         }
 
-        // Function to return to main Home Page
         function showHomePage() {
             comingSoonPage.style.display = 'none';
             mainContent.style.display = 'block';
