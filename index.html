@@ -12,6 +12,7 @@
             margin: 0;
             padding: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
         }
         body {
             background-color: #f8fafc;
@@ -20,18 +21,34 @@
             overflow-x: hidden;
         }
 
-        /* Top Bar Announcement */
+        /* Top Bar Announcement & Quick Contact */
         .top-bar {
             background: #0f172a;
             color: #94a3b8;
-            text-align: center;
-            padding: 8px 15px;
+            padding: 8px 8%;
             font-size: 0.85rem;
             font-weight: 500;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
         }
-        .top-bar span {
+        .top-bar-text span {
             color: #38bdf8;
             font-weight: 700;
+        }
+        .top-bar-contacts {
+            display: flex;
+            gap: 15px;
+        }
+        .top-bar-contacts a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .top-bar-contacts a:hover {
+            color: #38bdf8;
         }
 
         /* Navigation Bar */
@@ -138,7 +155,7 @@
             display: block;
         }
 
-        /* DNK Style Hero Section */
+        /* Hero Section */
         .hero {
             position: relative;
             min-height: 520px;
@@ -210,13 +227,83 @@
             transform: translateY(-2px);
         }
 
+        /* NEW: Front Page Contact Highlights */
+        .front-contact-section {
+            background: #ffffff;
+            padding: 50px 8%;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .front-contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .contact-section-title {
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #0f172a;
+            margin-bottom: 8px;
+        }
+        .contact-section-sub {
+            text-align: center;
+            color: #64748b;
+            font-size: 0.95rem;
+            margin-bottom: 35px;
+        }
+        .front-contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        .front-contact-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            padding: 25px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+        .front-contact-card:hover {
+            transform: translateY(-5px);
+            background: #ffffff;
+            box-shadow: 0 12px 25px rgba(0,0,0,0.06);
+            border-color: #0284c7;
+        }
+        .contact-card-icon {
+            width: 55px;
+            height: 55px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            color: #ffffff;
+            flex-shrink: 0;
+        }
+        .contact-card-icon.wa { background: #25D366; }
+        .contact-card-icon.insta { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+        .contact-card-icon.mail { background: #EA4335; }
+        
+        .contact-card-info h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 2px;
+        }
+        .contact-card-info p {
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+
         /* Category Banners Section */
         .category-section {
             max-width: 1200px;
-            margin: -50px auto 60px;
+            margin: 60px auto;
             padding: 0 20px;
-            position: relative;
-            z-index: 10;
         }
         .category-grid {
             display: grid;
@@ -277,7 +364,7 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 40px 20px 80px;
+            padding: 20px 20px 80px;
         }
         .section-title {
             text-align: center;
@@ -405,7 +492,7 @@
         .footer-contacts {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 12px;
             flex-wrap: wrap;
         }
         .contact-btn {
@@ -452,8 +539,9 @@
             .hero {
                 padding: 50px 20px;
             }
-            .category-section {
-                margin-top: 30px;
+            .top-bar {
+                justify-content: center;
+                text-align: center;
             }
             .footer-container {
                 flex-direction: column;
@@ -467,9 +555,15 @@
 </head>
 <body>
 
-    <!-- Top Announcement Bar -->
+    <!-- Top Announcement & Quick Contact Bar -->
     <div class="top-bar">
-        🚀 Launching Soon: <span>Get Exclusive Offers On Digital Assets!</span>
+        <div class="top-bar-text">
+            🚀 Launching Soon: <span>Get Exclusive Offers On Digital Assets!</span>
+        </div>
+        <div class="top-bar-contacts">
+            <a href="https://wa.me/94757663533" target="_blank"><i class="fa-brands fa-whatsapp"></i> +94 75 766 3533</a>
+            <a href="mailto:mhmsakeeb0@gmail.com"><i class="fa-solid fa-envelope"></i> Support</a>
+        </div>
     </div>
 
     <!-- Header / Navbar -->
@@ -488,6 +582,7 @@
                 <a onclick="openComingSoon('Canva Templates')"><i class="fa-solid fa-palette" style="color: #00c4cc;"></i> Canva Templates</a>
                 <a onclick="openComingSoon('CapCut Templates')"><i class="fa-solid fa-video" style="color: #f43f5e;"></i> CapCut Templates</a>
                 <a onclick="openComingSoon('Ebooks')"><i class="fa-solid fa-book-open" style="color: #fbbf24;"></i> Ebooks</a>
+                <a href="#contactSection"><i class="fa-solid fa-headset" style="color: #25D366;"></i> Contact Us</a>
             </div>
         </div>
     </nav>
@@ -502,7 +597,50 @@
                 <p>High-quality digital assets, templates, and creative tools tailored for content creators and modern entrepreneurs.</p>
                 <div class="hero-btns">
                     <a href="#categories" class="btn-primary">EXPLORE NOW</a>
-                    <a onclick="openComingSoon('Digital Store')" class="btn-secondary">LEARN MORE</a>
+                    <a href="#contactSection" class="btn-secondary">GET IN TOUCH</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Professional Front-Page Contact Section -->
+        <section class="front-contact-section" id="contactSection">
+            <div class="front-contact-container">
+                <h2 class="contact-section-title">Direct Customer Support</h2>
+                <p class="contact-section-sub">Need custom orders, inquiries, or support? Connect with us instantly!</p>
+                
+                <div class="front-contact-grid">
+                    <!-- WhatsApp -->
+                    <a href="https://wa.me/94757663533" target="_blank" class="front-contact-card">
+                        <div class="contact-card-icon wa">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </div>
+                        <div class="contact-card-info">
+                            <h4>Chat on WhatsApp</h4>
+                            <p>Instant Reply: +94 75 766 3533</p>
+                        </div>
+                    </a>
+
+                    <!-- Instagram -->
+                    <a href="https://www.instagram.com/sz_digital_items?stkn=OHh6amdoejV4MG1n" target="_blank" class="front-contact-card">
+                        <div class="contact-card-icon insta">
+                            <i class="fa-brands fa-instagram"></i>
+                        </div>
+                        <div class="contact-card-info">
+                            <h4>Follow Instagram</h4>
+                            <p>@sz_digital_items</p>
+                        </div>
+                    </a>
+
+                    <!-- Email -->
+                    <a href="mailto:mhmsakeeb0@gmail.com" class="front-contact-card">
+                        <div class="contact-card-icon mail">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <div class="contact-card-info">
+                            <h4>Email Assistance</h4>
+                            <p>mhmsakeeb0@gmail.com</p>
+                        </div>
+                    </a>
                 </div>
             </div>
         </section>
